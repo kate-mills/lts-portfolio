@@ -9,7 +9,7 @@ import Page from '../../src/components/Page'
 import 'aos/dist/aos.css'
 
 export default function TopLayout(props) {
-  const siteUrl = 'https://lts-portfolio-m.netlify.app'
+  const siteUrl = 'https://katemillscompany.com'
 
   return (
     <React.Fragment>
@@ -26,7 +26,7 @@ export default function TopLayout(props) {
         />
         <meta name="og:title" content="Kate Mills Portfolio" />
         <meta name="og:type" content="website" />
-        <meta name="og:image" content={`${siteUrl}/kate-mills-portfolio.jpg`} />
+        <meta name="og:image" content={`${siteUrl}/km-screen.jpg`} />
         <meta name="og:url" content={`${siteUrl}/`} />
         <meta
           name="og:description"
