@@ -2,6 +2,7 @@
 
 require('dotenv').config()
 require('dotenv').config({path: `.env.${process.env.NODE_ENV}`})
+const siteUrl = `https://katemillscompany.com/`
 
 module.exports = {
   plugins: [
@@ -16,13 +17,14 @@ module.exports = {
         name: `Kate Mills Portfolio`,
         short_name: `kateMills`,
         start_url: `/`,
-        icon: `src/images/icon-512x512.png`,
+        icon: `src/images/maskable_icon.png`,
         theme_color: `#ffffff`,
         display: `standalone`
       }
     }
   ],
   siteMetadata: {
-    title: 'Kate Mills Portfolio'
+    title: 'Kate Mills Portfolio',
+    siteUrl
   }
 }
