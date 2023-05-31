@@ -26,7 +26,7 @@ export default function TopLayout(props) {
         />
         <meta name="og:title" content="Kate Mills Portfolio" />
         <meta name="og:type" content="website" />
-        <meta name="og:image" content={`${siteUrl}/km-screen.jpg`} />
+        <meta name="og:image" content={`${siteUrl}/w-image.jpg`} />
         <meta name="og:url" content={`${siteUrl}/`} />
         <meta
           name="og:description"
