@@ -1,7 +1,6 @@
-/* eslint-disable no-undef */
-
 require('dotenv').config()
 require('dotenv').config({path: `.env.${process.env.NODE_ENV}`})
+const siteUrl = `https://katemillscompany.com/`
 
 module.exports = {
   plugins: [
@@ -23,6 +22,7 @@ module.exports = {
     }
   ],
   siteMetadata: {
-    title: 'Kate Mills Portfolio'
+    title: 'Kate Mills Portfolio',
+    siteUrl
   }
 }
