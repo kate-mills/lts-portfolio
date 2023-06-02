@@ -6,10 +6,11 @@ import Page from '../../src/components/Page'
 
 //import 'slick-carousel/slick/slick.css'
 //import 'slick-carousel/slick/slick-theme.css'
+
 import 'aos/dist/aos.css'
 
 export default function TopLayout(props) {
-  const siteUrl = 'https://katemillscompany.com'
+  const siteUrl = 'https://katemillscompany.com/'
 
   return (
     <React.Fragment>
@@ -26,8 +27,8 @@ export default function TopLayout(props) {
         />
         <meta name="og:title" content="Kate Mills Portfolio" />
         <meta name="og:type" content="website" />
-        <meta name="og:image" content={`${siteUrl}/w-image.jpg`} />
-        <meta name="og:url" content={`${siteUrl}/`} />
+        <meta name="og:image" content={`${siteUrl}w-image.jpg`} />
+        <meta name="og:url" content={`${siteUrl}`} />
         <meta
           name="og:description"
           content="Kate Mills Portfolio, featuring fast, secure, and robust websites I built using React, Gatsby, GraphQL, NodeJS, and more."

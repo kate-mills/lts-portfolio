@@ -13,7 +13,7 @@ import pages from '../navigation'
 const Fixed = ({children}) => {
   const theme = useTheme()
   const isMd = useMediaQuery(theme.breakpoints.up('md'), {
-    defaultMatches: true
+    defaultMatches: false
   })
 
   const [openSidebar, setOpenSidebar] = useState(false)

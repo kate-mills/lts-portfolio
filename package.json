@@ -41,6 +41,7 @@
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.5",
     "aos": "^2.3.4",
+    "axios": "^1.4.0",
     "card-validator": "^8.1.1",
     "formik": "^2.2.9",
     "gatsby": "^4.23.0",
@@ -60,6 +61,7 @@
     "react-type-animation": "^3.0.1",
     "react-visibility-sensor": "^5.1.1",
     "slick-carousel": "^1.8.1",
+    "unsplash-js": "^7.0.18",
     "yup": "^0.32.11"
   },
   "devDependencies": {

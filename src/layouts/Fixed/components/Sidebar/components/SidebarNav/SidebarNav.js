@@ -34,24 +34,27 @@ const SidebarNav = ({pages, onClose}) => {
               {item.groupTitle}
             </Typography>
             <Box>
-              {item.pages.map((p, i) => (
-                <Box marginBottom={1 / 2} key={i}>
-                  <Button
-                    component={'a'}
-                    href={p.href}
-                    target={p.target}
-                    fullWidth
-                    sx={{
-                      justifyContent: 'flex-start',
-                      color: activeLink === p.href ? theme.palette.primary.main : theme.palette.text.primary,
-                      backgroundColor: activeLink === p.href ? alpha(theme.palette.primary.main, 0.1) : 'transparent',
-                      fontWeight: activeLink === p.href ? 600 : 400
-                    }}
-                  >
-                    {p.title}
-                  </Button>
-                </Box>
-              ))}
+              {item.pages.map((p, i) => {
+                return (
+                  <Box marginBottom={1 / 2} key={i}>
+                    <Button
+                      component={p.target ? 'a' : Link}
+                      href={p.href}
+                      to={p.href}
+                      target={p.target}
+                      fullWidth
+                      sx={{
+                        justifyContent: 'flex-start',
+                        color: activeLink === p.href ? theme.palette.primary.main : theme.palette.text.primary,
+                        backgroundColor: activeLink === p.href ? alpha(theme.palette.primary.main, 0.1) : 'transparent',
+                        fontWeight: activeLink === p.href ? 600 : 400
+                      }}
+                    >
+                      {p.title}
+                    </Button>
+                  </Box>
+                )
+              })}
             </Box>
           </Box>
         ))}

@@ -31,8 +31,7 @@ const pages = [
       },
       {
         title: 'SnapScape',
-        href: 'https://katemillsco.com/download-images/',
-        target: '_blank'
+        href: '/snapscape/'
       }
     ]
   },

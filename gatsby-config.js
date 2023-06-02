@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 require('dotenv').config()
 require('dotenv').config({path: `.env.${process.env.NODE_ENV}`})
 const siteUrl = `https://katemillscompany.com/`
@@ -17,7 +15,7 @@ module.exports = {
         name: `Kate Mills Portfolio`,
         short_name: `kateMills`,
         start_url: `/`,
-        icon: `src/images/maskable_icon.png`,
+        icon: `src/images/icon-dark.png`,
         theme_color: `#ffffff`,
         display: `standalone`
       }
