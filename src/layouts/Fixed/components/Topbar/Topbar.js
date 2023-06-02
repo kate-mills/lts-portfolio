@@ -37,7 +37,6 @@ const Topbar = ({onSidebarOpen}) => {
       </Box>
       <Box sx={{display: {xs: 'flex', md: 'none'}}} alignItems={'center'}>
         <Box marginRight={1}>
-          {' '}
           <ThemeModeToggler />{' '}
         </Box>
         <Button

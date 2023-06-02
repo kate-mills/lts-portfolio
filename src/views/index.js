@@ -1,2 +1,3 @@
 export {default as IndexView} from './IndexView'
-export {default as NotFoundCover} from './NotFoundCover'
+export {default as NotFoundView} from './NotFoundView'
+export {default as SnapScapeView} from './SnapScapeView'

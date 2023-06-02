@@ -16,7 +16,7 @@ module.exports = {
         name: `Kate Mills Portfolio`,
         short_name: `kateMills`,
         start_url: `/`,
-        icon: `src/images/icon-512x512.png`,
+        icon: `src/images/icon-dark.png`,
         theme_color: `#ffffff`,
         display: `standalone`
       }
