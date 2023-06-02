@@ -31,7 +31,7 @@ const pages = [
       },
       {
         title: 'SnapScape',
-        href: '/snapscape'
+        href: '/snapscape/'
       }
     ]
   },
