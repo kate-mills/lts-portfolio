@@ -57,7 +57,7 @@ const Column = ({loading, query, handleButtonClick, data, dataName}) => {
             >
               <Box
                 component={'img'}
-                loading={i > 3 ? 'lazy' : 'eager'}
+                loading={'eager'}
                 height={1}
                 width={1}
                 src={item.urls?.regular}
