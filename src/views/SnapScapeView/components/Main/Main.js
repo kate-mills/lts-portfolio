@@ -1,27 +1,32 @@
-/* eslint-disable react/jsx-no-target-blank */
 import React from 'react'
-import PropTypes from 'prop-types'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
+//import Typography from '@mui/material/Typography'
 import CircularProgress from '@mui/material/CircularProgress'
-import {alpha, useTheme} from '@mui/material/styles'
+import Stack from '@mui/material/Stack'
+//import Fade from '@mui/material/Fade'
 
-import Avatar from '@mui/material/Avatar'
+import {useTheme} from '@mui/material/styles'
+
 import Chip from '@mui/material/Chip'
 import FileDownloadIcon from '@mui/icons-material/FileDownload'
+import Fab from '@mui/material/Fab'
+import {UseUnsplashContext} from 'context/unsplash'
 
-const Column = ({loading, query, handleButtonClick, data, dataName}) => {
+const Column = ({query, data, dataName}) => {
+  const {updateQueryString} = UseUnsplashContext()
   const theme = useTheme()
   const {
-    palette: {divider, mode}
+    palette: {
+      divider,
+      mode,
+      background: {paper}
+    }
   } = theme
 
-  return loading ? (
-    <CircularProgress />
-  ) : (
+  return (
     <Box>
-      {data.map((item, i) => {
+      {[...data].map((item, i) => {
         const {
           id,
           description,
@@ -31,28 +36,16 @@ const Column = ({loading, query, handleButtonClick, data, dataName}) => {
           tags,
           user: {name, username}
         } = item
-
         let key = `${dataName}--${id}--${i}`
         return (
-          <Box
-            key={key}
-            sx={{
-              marginBottom: {xs: 2, sm: 3},
-              '&:last-child': {marginBottom: 0}
-            }}
-          >
+          <Box data-aos="zoom-in-up" key={key} sx={{marginBottom: {xs: 2, sm: 3}, '&:last-child': {marginBottom: 0}}}>
             <Box
               boxShadow={1}
               sx={{
                 position: 'relative',
                 overflow: 'hidden',
                 borderRadius: 2,
-                '&:hover': {
-                  '& img': {transform: 'scale(1.2)'},
-                  '& .portfolio-massonry__main-item': {
-                    bottom: 0
-                  }
-                }
+                '&:hover': {'& img': {transform: 'scale(1.2)'}, '& .portfolio-massonry__main-item': {bottom: 0}}
               }}
             >
               <Box
@@ -60,14 +53,14 @@ const Column = ({loading, query, handleButtonClick, data, dataName}) => {
                 loading={'eager'}
                 height={1}
                 width={1}
-                src={item.urls?.regular}
+                src={regular}
                 alt={alt_description}
                 maxHeight={{xs: 400, sm: 600, md: 1}}
                 sx={{
                   transition: 'transform .7s ease !important',
                   transform: 'scale(1.0)',
                   objectFit: 'cover',
-                  filter: theme.palette.mode === 'dark' ? 'brightness(0.7)' : 'none'
+                  filter: mode === 'dark' ? 'brightness(0.7)' : 'none'
                 }}
               />
               <Box
@@ -97,19 +90,27 @@ const Column = ({loading, query, handleButtonClick, data, dataName}) => {
                     width: 1
                   }}
                 >
-                  <path fill={theme.palette.background.paper} d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
+                  <path fill={paper} d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
                 </Box>
-                <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-                  <Box maxWidth={'75%'} sx={{display: 'inline-block'}}>
+
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  useFlexGap
+                  justifyContent={'space-between'}
+                  alignItems="flex-start"
+                  flexWrap="wrap"
+                >
+                  <Box maxWidth={'75%'}>
                     {[...tags].map(({title, i}) => {
                       let isQueryMatch = title.toLowerCase() === query.toLowerCase()
                       return (
                         <Chip
-                          component={'button'}
+                          variant={'filled'}
                           size={'small'}
                           color={'primary'}
                           key={`${title}-${i}`}
-                          onClick={(e) => !isQueryMatch && handleButtonClick(title)}
+                          onClick={() => updateQueryString(title)}
                           label={title}
                           sx={{marginBottom: 1, marginRight: 1}}
                           disabled={isQueryMatch}
@@ -117,20 +118,19 @@ const Column = ({loading, query, handleButtonClick, data, dataName}) => {
                       )
                     })}
                   </Box>
-                  <Box
+                  <Fab
                     component={'a'}
                     rel="nofollow"
+                    size={'small'}
                     data-test="non-sponsored-photo-download-button"
                     title="Download Photo"
                     href={`${links.download}&force=true`}
-                    bgcolor={alpha(divider, 0.05)}
-                    width={50}
-                    height={50}
-                    sx={{borderRadius: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}
+                    color="primary"
+                    aria-label="Download"
                   >
-                    <Box component={FileDownloadIcon} color={'primary.main'} />
-                  </Box>
-                </Box>
+                    <FileDownloadIcon />
+                  </Fab>
+                </Stack>
               </Box>
             </Box>
           </Box>
@@ -140,44 +140,24 @@ const Column = ({loading, query, handleButtonClick, data, dataName}) => {
   )
 }
 
-Column.propTypes = {
-  data: PropTypes.array.isRequired,
-  dataName: PropTypes.string.isRequired,
-  query: PropTypes.string.isRequired,
-  handleButtonClick: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired
-}
+const Main = ({data1 = [], data2 = [], data3 = []}) => {
+  const {
+    state: {query}
+  } = UseUnsplashContext()
 
-const Main = ({query = '', handleButtonClick, loading = true, data1 = [], data2 = [], data3 = []}) => {
   return (
     <Box>
       <Grid container spacing={4}>
         <Grid item xs={12} md={4}>
-          <Column
-            loading={loading || data1?.length < 1}
-            query={query}
-            handleButtonClick={handleButtonClick}
-            data={data1}
-            dataName={'data1'}
-          />
+          {
+            (data1.length < 1) ? <CircularProgress sx={{margin: 'auto auto', display: 'block'}}/>
+            : <Column query={query} data={data1} dataName={'data1'} />}
         </Grid>
         <Grid item xs={12} md={4}>
-          <Column
-            query={query}
-            handleButtonClick={handleButtonClick}
-            data={data2}
-            dataName={'data2'}
-            loading={loading || data2?.length < 1}
-          />
+          {(data2.length < 1) ? <CircularProgress sx={{margin: 'auto auto', display: 'block'}}/> : <Column query={query} data={data2} dataName={'data2'} />}
         </Grid>
         <Grid item xs={12} md={4}>
-          <Column
-            query={query}
-            handleButtonClick={handleButtonClick}
-            data={data3}
-            dataName={'data3'}
-            loading={loading || data3?.length < 1}
-          />
+          {(data3.length < 1) ? <CircularProgress sx={{margin: 'auto auto', display: 'block'}}/> : <Column query={query} data={data3} dataName={'data3'} />}
         </Grid>
       </Grid>
     </Box>

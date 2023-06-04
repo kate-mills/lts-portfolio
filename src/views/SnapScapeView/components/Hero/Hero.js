@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from 'react'
 import {alpha, useTheme} from '@mui/material/styles'
 import Card from '@mui/material/Card'
@@ -9,16 +8,34 @@ import Typography from '@mui/material/Typography'
 import Divider from '@mui/material/Divider'
 import InputAdornment from '@mui/material/InputAdornment'
 import HeroImg from 'images/texture.jpg'
+import Stack from '@mui/material/Stack'
+import Chip from '@mui/material/Chip'
+
+
+import {UseUnsplashContext} from 'context/unsplash'
 
 import Container from 'components/Container'
 
-const Hero = ({query, handleSubmit, handleChange, img}) => {
+const Hero = ({img}) => {
   const theme = useTheme()
+  const {
+    alternate: {main},
+    primary: {dark}
+  } = theme.palette
+
+  const {
+    updateQueryString,
+    state: {query, trending}
+  } = UseUnsplashContext()
   const [inputValue, setInputValue] = React.useState(query)
 
-  const updateTextQuery = (e) => {
-    let value = e.target.value
-    setTextQuery(e.target.value)
+  React.useEffect(() => {
+    setInputValue(query)
+  }, [query])
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault()
+    updateQueryString(e.target[0].value)
   }
   return (
     <Box
@@ -26,7 +43,7 @@ const Hero = ({query, handleSubmit, handleChange, img}) => {
       height={'auto'}
       position={'relative'}
       sx={{
-        backgroundColor: theme.palette.alternate.main,
+        backgroundColor: dark,
         background: `url(${img?.urls?.full || HeroImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center center'
@@ -41,7 +58,7 @@ const Hero = ({query, handleSubmit, handleChange, img}) => {
           bottom: 0,
           width: 1,
           height: 1,
-          background: alpha(theme.palette.primary.dark, 0.6),
+          background: alpha(dark, 0.6),
           zIndex: 1
         }}
       />
@@ -68,9 +85,13 @@ const Hero = ({query, handleSubmit, handleChange, img}) => {
             >
               Your one-stop destination for delightful and cost-free imagery!
             </Typography>
+            <Typography component="p" variant="body2" align="left">
+              {' '}
+              Explore, discover, and download captivating visuals for all your creative needs.{' '}
+            </Typography>
           </Box>
           <Box padding={{xs: 3, sm: 6}} width={1} component={Card} boxShadow={1}>
-            <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+            <form noValidate autoComplete="off" onSubmit={handleFormSubmit}>
               <Box display="flex" flexDirection={{xs: 'column', md: 'row'}}>
                 <Box width={1} marginRight={{xs: 0, md: 2}} marginBottom={{xs: 2, md: 0}}>
                   <TextField
@@ -129,12 +150,30 @@ const Hero = ({query, handleSubmit, handleChange, img}) => {
             <Box>
               <Typography component="p" variant="body2" align="left">
                 Explore, discover, and download captivating visuals for all your creative needs.
-                <Box component="a" href="" color={theme.palette.text.primary} fontWeight={'700'}></Box>
-                <Box component="a" href="" color={theme.palette.text.primary} fontWeight={'700'}></Box>
-                <Box component="a" href="" color={theme.palette.text.primary} fontWeight={'700'}></Box>
               </Typography>
             </Box>
           </Box>
+        </Box>
+        <Box mt={3}>
+          <Stack direction="row" spacing={1}>
+            <Typography component="p" variant="body2" align="left" color={'common.white'}>Trending:</Typography>
+            {[...trending].map((title, i) => {
+              let isQueryMatch = title.toLowerCase() === query.toLowerCase()
+              return (
+                <Chip
+                  component={'button'}
+                  size={'small'}
+                  color={'secondary'}
+                  variant={'filled'}
+                  key={`${title}-${i}`}
+                  onClick={(e) => !isQueryMatch && updateQueryString(title)}
+                  label={title}
+                  sx={{marginBottom: 1, marginRight: 1}}
+                  disabled={isQueryMatch}
+                />
+              )
+            })}
+          </Stack>
         </Box>
       </Container>
     </Box>
