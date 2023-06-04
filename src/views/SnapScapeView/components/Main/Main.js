@@ -1,12 +1,11 @@
 import React from 'react'
 import Box from '@mui/material/Box'
-
 import Grid from '@mui/material/Grid'
-//import CircularProgress from '@mui/material/CircularProgress'
 import Skeleton from '@mui/material/Skeleton'
 import Stack from '@mui/material/Stack'
 
-import {useTheme} from '@mui/material/styles'
+import {alpha, useTheme} from '@mui/material/styles'
+
 import useMediaQuery from '@mui/material/useMediaQuery'
 
 import Chip from '@mui/material/Chip'
@@ -14,7 +13,7 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload'
 import Fab from '@mui/material/Fab'
 import {UseUnsplashContext} from 'context/unsplash'
 
-const Column = ({query, data, dataName}) => {
+const Column = ({query, data, dataName, isSm = true}) => {
   const {updateQueryString} = UseUnsplashContext()
   const theme = useTheme()
   const {
@@ -66,64 +65,35 @@ const Column = ({query, data, dataName}) => {
                   transition: 'transform .7s ease !important',
                   transform: 'scale(1.0)',
                   objectFit: 'cover',
-                  filter: mode === 'dark' ? 'brightness(0.7)' : 'none'
+                  filter: mode === 'dark' ? 'brightness(0.7)' : 'brightness(0.9)'
                 }}
               />
-              <Box
-                position={'absolute'}
-                bottom={'-100%'}
-                left={0}
-                right={0}
-                padding={4}
-                bgcolor={'background.paper'}
-                className={'portfolio-massonry__main-item'}
-                sx={{transition: 'bottom 0.3s ease 0s'}}
-              >
-                <Box
-                  component={'svg'}
-                  preserveAspectRatio="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 1920 100.1"
-                  sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    transform: 'translateY(-90%)',
-                    zIndex: 2,
-                    width: 1
-                  }}
-                >
-                  <path fill={paper} d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
-                </Box>
-
+              {isSm ? (
                 <Stack
                   direction="row"
-                  spacing={2}
+                  spacing={1}
                   useFlexGap
                   justifyContent={'space-between'}
-                  alignItems="flex-start"
+                  alignItems="center"
                   flexWrap="wrap"
+                  sx={{position: 'absolute', bottom: 20, left: 8, right: 8, }}
                 >
-                  <Box maxWidth={'75%'}>
+                  <Stack maxWidth={'80%'}direction="row" spacing={1} alignItems="center" useFlexGap justifyContent="space-between" flexWrap="wrap">
                     {[...tags].map(({title, i}) => {
                       let isQueryMatch = title.toLowerCase() === query.toLowerCase()
-                      return (
-                        <Chip
+                      return ( isQueryMatch ? null : <Chip
+                          component={'button'}
                           variant={'filled'}
                           size={'small'}
                           color={'primary'}
                           key={`${title}-${i}`}
                           onClick={() => updateQueryString(title)}
                           label={title}
-                          sx={{marginBottom: 1, marginRight: 1}}
                           disabled={isQueryMatch}
                         />
                       )
                     })}
-                  </Box>
+                  </Stack>
                   <Fab
                     component={'a'}
                     rel="nofollow"
@@ -137,7 +107,77 @@ const Column = ({query, data, dataName}) => {
                     <FileDownloadIcon />
                   </Fab>
                 </Stack>
-              </Box>
+              ) : (
+                <Box
+                  position={'absolute'}
+                  bottom={'-100%'}
+                  left={0}
+                  right={0}
+                  padding={4}
+                  bgcolor={'background.paper'}
+                  className={'portfolio-massonry__main-item'}
+                  sx={{transition: 'bottom 0.3s ease 0s'}}
+                >
+                  <Box
+                    component={'svg'}
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 1920 100.1"
+                    sx={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      transform: 'translateY(-90%)',
+                      zIndex: 2,
+                      width: 1
+                    }}
+                  >
+                    <path fill={paper} d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
+                  </Box>
+
+                  <Stack
+                    direction="row"
+                    spacing={1}
+                    useFlexGap
+                    justifyContent={'space-between'}
+                    alignItems="flex-start"
+                    flexWrap="wrap"
+                  >
+                    <Box maxWidth={'100%'}>
+                      {[...tags].map(({title, i}) => {
+                        let isQueryMatch = title.toLowerCase() === query.toLowerCase()
+                        return (
+                          <Chip
+                            variant={'filled'}
+                            size={'small'}
+                            color={'primary'}
+                            key={`${title}-${i}`}
+                            onClick={() => updateQueryString(title)}
+                            label={title}
+                            sx={{marginBottom: 1, marginRight: 1}}
+                            disabled={isQueryMatch}
+                          />
+                        )
+                      })}
+                    </Box>
+                    <Fab
+                      component={'a'}
+                      rel="nofollow"
+                      size={'small'}
+                      data-test="non-sponsored-photo-download-button"
+                      title="Download Photo"
+                      href={`${links.download}&force=true`}
+                      color="primary"
+                      aria-label="Download"
+                    >
+                      <FileDownloadIcon />
+                    </Fab>
+                  </Stack>
+                </Box>
+              )}
             </Box>
           </Box>
         )
@@ -152,32 +192,35 @@ const Main = ({data1 = [], data2 = [], data3 = []}) => {
   } = UseUnsplashContext()
 
   const theme = useTheme()
-  const isSm = useMediaQuery(theme.breakpoints.down('sm'), {defaultMatches: false})
-  console.log('isSm', isSm)
+  const isSm = useMediaQuery(theme.breakpoints.down('md'), {defaultMatches: false})
 
   return (
     <Box>
       <Grid container spacing={4}>
-        <Grid item xs={12} md={4}>
-          {isSm || data1.length < 1 ? (
-            <Skeleton animation={'wave'} />
-          ) : (
-            <Column query={query} data={data1} dataName={'data1'} />
-          )}
-        </Grid>
-        <Grid item xs={12} md={4}>
-          {isSm || data2.length < 1 ? (
-            <Skeleton animation={'wave'} />
-          ) : (
-            <Column query={query} data={data2} dataName={'data2'} />
-          )}
-        </Grid>
+        {!isSm && (
+          <Grid item xs={12} md={4}>
+            {data1.length < 1 ? (
+              <Skeleton animation={'wave'} />
+            ) : (
+              <Column query={query} data={data1} dataName={'data1'} isSm={isSm} />
+            )}
+          </Grid>
+        )}
+        {!isSm && (
+          <Grid item xs={12} md={4}>
+            {data2.length < 1 ? (
+              <Skeleton animation={'wave'} />
+            ) : (
+              <Column query={query} data={data2} dataName={'data2'} isSm={isSm} />
+            )}
+          </Grid>
+        )}
 
         <Grid item xs={12} md={4}>
           {data3.length < 1 ? (
-            <Skeleton animation={'wave'}/>
+            <Skeleton animation={'wave'} />
           ) : (
-            <Column query={query} data={data3} dataName={'data3'} />
+            <Column query={query} data={data3} dataName={'data3'} isSm={isSm} />
           )}
         </Grid>
       </Grid>
