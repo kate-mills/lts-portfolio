@@ -33,6 +33,7 @@ const SnapScapeView = () => {
 
   React.useEffect(()  => {
     setPg(1)
+    focusInput()
   }, [query])
 
   React.useEffect(() => {

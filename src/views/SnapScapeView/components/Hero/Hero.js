@@ -72,21 +72,22 @@ const Hero = ({img}) => {
               Free, delightful imagery at your fingertips!
             </Typography>
 
-            <Typography variant="h6" sx={{color: 'common.white'}}></Typography>
+            <Typography variant="h6" sx={{color: 'common.white'}}>
+    </Typography>
 
             <Typography
               variant="h6"
               component="p"
-              color="text.primary"
               sx={{
                 fontWeight: 400,
                 color: 'common.white'
               }}
+    gutterBottom
             >
               Your one-stop destination for delightful and cost-free imagery!
             </Typography>
-            <Typography component="p" variant="body2" align="left">
-              {' '}
+
+            <Typography component="p" variant="body2" align="left" color={'common.white'}>
               Explore, discover, and download captivating visuals for all your creative needs.{' '}
             </Typography>
           </Box>
@@ -147,23 +148,16 @@ const Hero = ({img}) => {
             <Box marginY={4} marginX={{xs: -3, sm: -6}}>
               <Divider />
             </Box>
-            <Box>
-              <Typography component="p" variant="body2" align="left">
-                Explore, discover, and download captivating visuals for all your creative needs.
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
-        <Box mt={3}>
-          <Stack direction="row" spacing={1}>
-            <Typography component="p" variant="body2" align="left" color={'common.white'}>Trending:</Typography>
+
+          <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+            <Typography component="p" variant="body2" align="left">Trending:</Typography>
             {[...trending].map((title, i) => {
               let isQueryMatch = title.toLowerCase() === query.toLowerCase()
               return (
                 <Chip
                   component={'button'}
                   size={'small'}
-                  color={'secondary'}
+                  color={'primary'}
                   variant={'filled'}
                   key={`${title}-${i}`}
                   onClick={(e) => !isQueryMatch && updateQueryString(title)}
@@ -174,6 +168,7 @@ const Hero = ({img}) => {
               )
             })}
           </Stack>
+          </Box>
         </Box>
       </Container>
     </Box>

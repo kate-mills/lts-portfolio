@@ -1,12 +1,13 @@
 import React from 'react'
 import Box from '@mui/material/Box'
+
 import Grid from '@mui/material/Grid'
-//import Typography from '@mui/material/Typography'
-import CircularProgress from '@mui/material/CircularProgress'
+//import CircularProgress from '@mui/material/CircularProgress'
+import Skeleton from '@mui/material/Skeleton'
 import Stack from '@mui/material/Stack'
-//import Fade from '@mui/material/Fade'
 
 import {useTheme} from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 import Chip from '@mui/material/Chip'
 import FileDownloadIcon from '@mui/icons-material/FileDownload'
@@ -38,7 +39,12 @@ const Column = ({query, data, dataName}) => {
         } = item
         let key = `${dataName}--${id}--${i}`
         return (
-          <Box data-aos="zoom-in-up" key={key} sx={{marginBottom: {xs: 2, sm: 3}, '&:last-child': {marginBottom: 0}}}>
+          <Box
+            data-aos="zoom-in-up"
+            key={key}
+            sx={{marginBottom: {xs: 2, sm: 3}, '&:last-child': {marginBottom: 0}}}
+            minHeight={'fit-content'}
+          >
             <Box
               boxShadow={1}
               sx={{
@@ -145,19 +151,34 @@ const Main = ({data1 = [], data2 = [], data3 = []}) => {
     state: {query}
   } = UseUnsplashContext()
 
+  const theme = useTheme()
+  const isSm = useMediaQuery(theme.breakpoints.down('sm'), {defaultMatches: false})
+  console.log('isSm', isSm)
+
   return (
     <Box>
       <Grid container spacing={4}>
         <Grid item xs={12} md={4}>
-          {
-            (data1.length < 1) ? <CircularProgress sx={{margin: 'auto auto', display: 'block'}}/>
-            : <Column query={query} data={data1} dataName={'data1'} />}
+          {isSm || data1.length < 1 ? (
+            <Skeleton animation={'wave'} />
+          ) : (
+            <Column query={query} data={data1} dataName={'data1'} />
+          )}
         </Grid>
         <Grid item xs={12} md={4}>
-          {(data2.length < 1) ? <CircularProgress sx={{margin: 'auto auto', display: 'block'}}/> : <Column query={query} data={data2} dataName={'data2'} />}
+          {isSm || data2.length < 1 ? (
+            <Skeleton animation={'wave'} />
+          ) : (
+            <Column query={query} data={data2} dataName={'data2'} />
+          )}
         </Grid>
+
         <Grid item xs={12} md={4}>
-          {(data3.length < 1) ? <CircularProgress sx={{margin: 'auto auto', display: 'block'}}/> : <Column query={query} data={data3} dataName={'data3'} />}
+          {data3.length < 1 ? (
+            <Skeleton animation={'wave'}/>
+          ) : (
+            <Column query={query} data={data3} dataName={'data3'} />
+          )}
         </Grid>
       </Grid>
     </Box>
