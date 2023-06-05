@@ -1,0 +1,2 @@
+export const FETCH_DATA = 'FETCH_DATA'
+export const UPDATE_QUERY_STRING = 'UPDATE_QUERY_STRING'
