@@ -11,7 +11,6 @@ import HeroImg from 'images/texture.jpg'
 import Stack from '@mui/material/Stack'
 import Chip from '@mui/material/Chip'
 
-
 import {UseUnsplashContext} from 'context/unsplash'
 
 import Container from 'components/Container'
@@ -19,7 +18,6 @@ import Container from 'components/Container'
 const Hero = ({img}) => {
   const theme = useTheme()
   const {
-    alternate: {main},
     primary: {dark}
   } = theme.palette
 
@@ -72,8 +70,7 @@ const Hero = ({img}) => {
               Free, delightful imagery at your fingertips!
             </Typography>
 
-            <Typography variant="h6" sx={{color: 'common.white'}}>
-    </Typography>
+            <Typography variant="h6" sx={{color: 'common.white'}}></Typography>
 
             <Typography
               variant="h6"
@@ -82,7 +79,7 @@ const Hero = ({img}) => {
                 fontWeight: 400,
                 color: 'common.white'
               }}
-    gutterBottom
+              gutterBottom
             >
               Your one-stop destination for delightful and cost-free imagery!
             </Typography>
@@ -149,25 +146,27 @@ const Hero = ({img}) => {
               <Divider />
             </Box>
 
-          <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
-            <Typography component="p" variant="body2" align="left">Trending:</Typography>
-            {[...trending].map((title, i) => {
-              let isQueryMatch = title.toLowerCase() === query.toLowerCase()
-              return (
-                <Chip
-                  component={'button'}
-                  size={'small'}
-                  color={'primary'}
-                  variant={'filled'}
-                  key={`${title}-${i}`}
-                  onClick={(e) => !isQueryMatch && updateQueryString(title)}
-                  label={title}
-                  sx={{marginBottom: 1, marginRight: 1}}
-                  disabled={isQueryMatch}
-                />
-              )
-            })}
-          </Stack>
+            <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+              <Typography component="p" variant="body2" align="left">
+                Trending:
+              </Typography>
+              {[...trending].map((title, i) => {
+                let isQueryMatch = title.toLowerCase() === query.toLowerCase()
+                return (
+                  <Chip
+                    component={'button'}
+                    size={'small'}
+                    color={'primary'}
+                    variant={'filled'}
+                    key={`${title}-${i}`}
+                    onClick={(e) => !isQueryMatch && updateQueryString(title)}
+                    label={title}
+                    sx={{marginBottom: 1, marginRight: 1}}
+                    disabled={isQueryMatch}
+                  />
+                )
+              })}
+            </Stack>
           </Box>
         </Box>
       </Container>

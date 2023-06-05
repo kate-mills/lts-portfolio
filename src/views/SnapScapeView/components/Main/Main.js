@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid'
 import Skeleton from '@mui/material/Skeleton'
 import Stack from '@mui/material/Stack'
 
-import {alpha, useTheme} from '@mui/material/styles'
+import {useTheme} from '@mui/material/styles'
 
 import useMediaQuery from '@mui/material/useMediaQuery'
 
@@ -18,7 +18,6 @@ const Column = ({query, data, dataName, isSm = true}) => {
   const theme = useTheme()
   const {
     palette: {
-      divider,
       mode,
       background: {paper}
     }
@@ -29,14 +28,13 @@ const Column = ({query, data, dataName, isSm = true}) => {
       {[...data].map((item, i) => {
         const {
           id,
-          description,
           alt_description,
-          urls: {regular},
+          urls: {small, regular},
           links,
-          tags,
-          user: {name, username}
+          tags
         } = item
         let key = `${dataName}--${id}--${i}`
+        console.log(small)
         return (
           <Box
             data-aos="zoom-in-up"
@@ -56,9 +54,10 @@ const Column = ({query, data, dataName, isSm = true}) => {
               <Box
                 component={'img'}
                 loading={'eager'}
+                minHeight={200}
                 height={1}
                 width={1}
-                src={regular}
+                src={isSm ? small : regular}
                 alt={alt_description}
                 maxHeight={{xs: 400, sm: 600, md: 1}}
                 sx={{
@@ -76,12 +75,21 @@ const Column = ({query, data, dataName, isSm = true}) => {
                   justifyContent={'space-between'}
                   alignItems="center"
                   flexWrap="wrap"
-                  sx={{position: 'absolute', bottom: 20, left: 8, right: 8, }}
+                  sx={{position: 'absolute', bottom: 20, left: 8, right: 8}}
                 >
-                  <Stack maxWidth={'80%'}direction="row" spacing={1} alignItems="center" useFlexGap justifyContent="space-between" flexWrap="wrap">
+                  <Stack
+                    maxWidth={'80%'}
+                    direction="row"
+                    spacing={1}
+                    alignItems="center"
+                    useFlexGap
+                    justifyContent="space-between"
+                    flexWrap="wrap"
+                  >
                     {[...tags].map(({title, i}) => {
                       let isQueryMatch = title.toLowerCase() === query.toLowerCase()
-                      return ( isQueryMatch ? null : <Chip
+                      return isQueryMatch ? null : (
+                        <Chip
                           component={'button'}
                           variant={'filled'}
                           size={'small'}
@@ -200,7 +208,7 @@ const Main = ({data1 = [], data2 = [], data3 = []}) => {
         {!isSm && (
           <Grid item xs={12} md={4}>
             {data1.length < 1 ? (
-              <Skeleton animation={'wave'} />
+              <Skeleton animation={'wave'} height={200} />
             ) : (
               <Column query={query} data={data1} dataName={'data1'} isSm={isSm} />
             )}

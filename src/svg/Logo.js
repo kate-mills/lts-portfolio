@@ -1,11 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import {useTheme} from '@mui/material/styles'
 
 const Logo = ({width = 120, height = 28, ...rest}) => {
   const theme = useTheme()
   const {palette} = theme
-  const {primary, secondary, mode} = palette
+  const {primary, mode} = palette
 
   let fill = rest.fill || (mode === 'dark' ? primary.light : primary.main)
   let contrastText = rest.contrastText || primary.contrastText

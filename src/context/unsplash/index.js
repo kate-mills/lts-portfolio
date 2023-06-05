@@ -1,14 +1,7 @@
-import React, {useState, createContext, useContext, useEffect, useReducer} from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
 
-import {
-  UNSET_LOADING,
-  SET_LOADING,
-  FETCH_ADDITIONAL,
-  FETCH_FIRST_PAGE,
-  UPDATE_QUERY_STRING,
-  INCREMENT_PAGE,
-  RESET_PAGE_NUMBER
-} from './actions'
+import React, {createContext, useContext, useEffect, useReducer} from 'react'
+import {FETCH_ADDITIONAL, FETCH_FIRST_PAGE, UPDATE_QUERY_STRING, SET_LOADING, UNSET_LOADING} from './actions'
 
 import reducer from './reducer'
 
@@ -22,7 +15,7 @@ const initialState = {
   query: DEFAULT_QUERY,
   defaultQuery: DEFAULT_QUERY,
   trending: ['flower', 'wallpapers', 'backgrounds', 'happy', 'love'],
-  photoData: {data1: [], data2: [], data3: []},
+  photoData: {images: [], data1: [], data2: [], data3: []},
   loading: false
 }
 
@@ -40,41 +33,30 @@ const UnsplashProvider = ({children}) => {
         console.log('err', err)
       })
   }
-  const startLoading = () => {
-    dispatch({type: SET_LOADING})
-  }
-  const stopLoading = () => {
-    dispatch({type: UNSET_LOADING})
-  }
-
-  const resetPageNumber = () => {
-    return dispatch({type: RESET_PAGE_NUMBER})
-  }
-
   const updateQueryString = (query) => {
     dispatch({type: UPDATE_QUERY_STRING, payload: {qString: query}})
     fetchFirstPage(query)
   }
 
+  const setLoading = () => {
+    dispatch({type: SET_LOADING})
+  }
+
   const fetchPageNumber = async (pg) => {
     /* Append to image list */
-    let nextPage = pg + 1
-
-    console.log('fetchPageNumber - pg', pg)
-    console.log('fetchPageNumber - nextPage', nextPage)
     pg < 10 &&
       state.unsplash?.search
         .getPhotos({page: pg, query: state.query})
         .then((result) => {
-          dispatch({type: FETCH_ADDITIONAL, payload: {images: result?.response?.results, pg: nextPage}})
+          dispatch({type: FETCH_ADDITIONAL, payload: {images: result?.response?.results, pg: pg + 1}})
+        })
+        .then((response) => {
+          console.log('sencond them', response)
+          dispatch({type: UNSET_LOADING})
         })
         .catch((err) => {
           console.log('err', err)
         })
-  }
-
-  const updatePageNumber = (pg) => {
-    dispatch({type: INCREMENT_PAGE, payload: {pg}})
   }
 
   useEffect(() => {
@@ -82,7 +64,9 @@ const UnsplashProvider = ({children}) => {
   }, [])
 
   return (
-    <UnsplashContext.Provider value={{updateQueryString, fetchPageNumber, state}}>{children}</UnsplashContext.Provider>
+    <UnsplashContext.Provider value={{setLoading, updateQueryString, fetchPageNumber, state}}>
+      {children}
+    </UnsplashContext.Provider>
   )
 }
 

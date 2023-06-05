@@ -8,8 +8,6 @@ import Container from 'components/Container'
 import images from 'utils/image-data'
 
 const Hero = () => {
-  const theme = useTheme()
-
   const {
     spacing,
     palette: {
@@ -79,7 +77,7 @@ const Hero = () => {
                     <Box
                       component={'img'}
                       loading="lazy"
-                      src={theme.palette.mode === 'dark' ? g.imgDark : g.imgLt}
+                      src={mode === 'dark' ? g.imgDark : g.imgLt}
                       height={1}
                       width={1}
                       maxWidth={320}

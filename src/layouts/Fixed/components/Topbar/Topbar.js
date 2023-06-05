@@ -5,16 +5,13 @@ import Button from '@mui/material/Button'
 import {alpha, useTheme} from '@mui/material/styles'
 import MenuIcon from '@mui/icons-material/Menu'
 import Logo from 'svg/Logo'
-
 import Link from 'components/Link'
-
 import {ThemeModeToggler} from './components'
 
 const Topbar = ({onSidebarOpen}) => {
-  const theme = useTheme()
   const {
-    palette: {divider, mode}
-  } = theme
+    palette: {divider}
+  } = useTheme()
   return (
     <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} width={1}>
       <Box display={'flex'} component={Link} to="/" title="Kate Mills Portfolio" width={{xs: 100, md: 120}}>
