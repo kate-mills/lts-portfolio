@@ -15,9 +15,8 @@ const pages = [
     id: 'web-apps',
     pages: [
       {
-        title: 'Mix Master',
-        href: 'https://cocktail-lookup.netlify.app/',
-        target: '_blank'
+        title: 'MixMaster',
+        href: '/mixmaster/',
       },
       {
         title: 'ColorCraft: Palette Pro',
