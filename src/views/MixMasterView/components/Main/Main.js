@@ -11,18 +11,15 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import Chip from '@mui/material/Chip'
 import FileDownloadIcon from '@mui/icons-material/FileDownload'
 import Fab from '@mui/material/Fab'
-import {UseUnsplashContext} from 'context/unsplash'
+
+import {UseMixMasterContext} from 'context/mixmaster'
 
 const Column = ({query, data, dataName, isSm = true}) => {
-  const {updateQueryString} = UseUnsplashContext()
+  const {updateQueryString} = UseMixMasterContext()
   const theme = useTheme()
-  const {
-    palette: {
-      mode,
-      background: {paper}
-    }
-  } = theme
+  const { palette: { mode, background: {paper} } } = theme
 
+    console.log('*****data', data)
   return (
     <Box>
       {[...data].map((item, i) => {
@@ -197,7 +194,7 @@ const Column = ({query, data, dataName, isSm = true}) => {
 const Main = ({data1 = [], data2 = [], data3 = []}) => {
   const {
     state: {query}
-  } = UseUnsplashContext()
+  } = UseMixMasterContext()
 
   const theme = useTheme()
   const isSm = useMediaQuery(theme.breakpoints.down('md'), {defaultMatches: false})

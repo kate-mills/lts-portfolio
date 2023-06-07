@@ -16,7 +16,7 @@ const pages = [
     pages: [
       {
         title: 'MixMaster',
-        href: '/mixmaster/',
+        href: '/mixmaster/'
       },
       {
         title: 'ColorCraft: Palette Pro',

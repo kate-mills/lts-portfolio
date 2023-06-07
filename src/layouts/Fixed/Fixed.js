@@ -8,7 +8,7 @@ import AppBar from '@mui/material/AppBar'
 
 import Container from 'components/Container'
 import {Topbar, Sidebar, Footer} from './components'
-import pages from '../navigation'
+import pages from '../navigation--fixed'
 
 const Fixed = ({children}) => {
   const theme = useTheme()

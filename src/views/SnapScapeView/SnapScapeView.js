@@ -2,7 +2,7 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 
-import FixedLayout from 'layouts/Fixed'
+import FluidLayout from 'layouts/Main'
 import Container from 'components/Container'
 import {Hero, Main} from './components'
 
@@ -47,14 +47,14 @@ const SnapScapeView = () => {
   }, [])
 
   return (
-    <FixedLayout>
+    <FluidLayout>
       <Box sx={{overflow: 'hidden !important'}} minHeight={'calc(100vh - 179px)'}>
         <Hero img={data1[0]} />
         <Container paddingTop={'3 !important'}>
           <Main colorsInvert={true} query={query} loading={loading} data1={data1} data2={data2} data3={data3} />
         </Container>
       </Box>
-    </FixedLayout>
+    </FluidLayout>
   )
 }
 
