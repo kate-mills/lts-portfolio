@@ -13,7 +13,7 @@ const SidebarNav = ({ pages }) => {
 
   const {
     landings: landingPages,
-    portfolio: portfolioPages,
+    apps: appsPages,
   } = pages;
 
   return (
@@ -38,7 +38,7 @@ const SidebarNav = ({ pages }) => {
           <NavItem title={'Landings'} items={landingPages} />
         </Box>
         <Box>
-          <NavItem title={'Portfolio'} items={portfolioPages} />
+          <NavItem title={'Apps'} items={appsPages} />
         </Box>
         <Box marginTop={2}>
           <Button

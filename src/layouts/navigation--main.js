@@ -16,7 +16,7 @@ const pages = {
       //href: 'https://arttranslated.netlify.app/',
     }
   ],
-  portfolio: [
+  apps: [
     {
       title: 'SnapScape',
       href: '/snapscape/'

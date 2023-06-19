@@ -41,9 +41,7 @@ const TopNav = ({ colorInvert = true }) => {
         >Docs
         </Link>
       </Box>
-      <Box>
-        <ThemeModeToggler />
-      </Box>
+      <Box> <ThemeModeToggler /> </Box>
     </Box>
   );
 };

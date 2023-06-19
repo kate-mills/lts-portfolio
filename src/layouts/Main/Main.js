@@ -14,7 +14,6 @@ import NoSsr from '@mui/material/NoSsr';
 
 
 import Container from 'components/Container';
-import TopNav from 'components/TopNav';
 
 import { Topbar, Sidebar, Footer } from './components';
 
@@ -58,9 +57,6 @@ const Main = ({ children, colorInvert = false, bgcolor = 'transparent' }) => {
   return (
     <Box id="js--main-top">
       <Box bgcolor={bgcolor} position={'relative'} zIndex={theme.zIndex.appBar}>
-        <Container paddingTop={'8px !important'} paddingBottom={'0 !important'}>
-          <TopNav colorInvert={colorInvert} />
-        </Container>
       </Box>
       <AppBar
         position={'sticky'}

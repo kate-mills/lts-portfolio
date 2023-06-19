@@ -9,12 +9,13 @@ import Link from 'components/Link';
 import Logo from 'svg/Logo'
 
 import { NavItem } from './components';
+import ThemeModeToggler from 'components/ThemeModeToggler'
 
 const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
   const theme = useTheme();
   const {
     landings: landingPages,
-    portfolio: portfolioPages,
+    apps: appsPages,
   } = pages;
 
   return (
@@ -37,24 +38,24 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
           width={1}
         />
       </Box>
+
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
-        <Box>
+        <Box mr={2}>
           <NavItem
-            title={'Landings'}
+            title={'LLLLandings'}
             id={'landing-pages'}
             items={landingPages}
-            colorInvert={colorInvert}
           />
         </Box>
-        <Box marginLeft={4}>
+        <Box mr={2}>
           <NavItem
-            title={'Portfolio'}
-            id={'portfolio-pages'}
-            items={portfolioPages}
-            colorInvert={colorInvert}
+            title={'Apps'}
+            id={'apps'}
+            items={appsPages}
           />
         </Box>
-        <Box marginLeft={4}>
+        <ThemeModeToggler/>
+        <Box marginLeft={2}>
           <Button
             variant="contained"
             color="primary"
@@ -67,12 +68,14 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
         </Box>
       </Box>
       <Box sx={{ display: { xs: 'block', md: 'none' } }} alignItems={'center'}>
+        <ThemeModeToggler/>
         <Button
           onClick={() => onSidebarOpen()}
           aria-label="Menu"
           variant={'outlined'}
           sx={{
             borderRadius: 2,
+              marginLeft: 1,
             minWidth: 'auto',
             padding: 1,
             borderColor: alpha(theme.palette.divider, 0.2),
