@@ -58,8 +58,7 @@ const Footer = () => {
                 variant="outlined"
                 color="primary"
                 component={Link}
-                target="blank"
-                href="/"
+                to="/"
                 size="small"
               >
                 Contact Me

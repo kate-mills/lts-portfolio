@@ -9,7 +9,6 @@ const Link = React.forwardRef(function Link(props, ref) {
       ref={ref}
       {...props}
       underline={props.underline === 'underline' ? 'always' : 'none'}
-      color="primary"
     />
   )
 })

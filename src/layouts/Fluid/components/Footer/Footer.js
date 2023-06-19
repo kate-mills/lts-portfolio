@@ -37,7 +37,6 @@ const Footer = () => {
             <Box marginTop={1} marginRight={2}>
               <Link
                 underline="none"
-                component={Link}
                 to="/"
                 color="text.primary"
                 variant={'subtitle2'}

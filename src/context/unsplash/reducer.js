@@ -9,7 +9,6 @@ import {
 } from './actions'
 
 const unsplash_reducer = (state, action) => {
-  console.log(action.type)
   if (action.type === SET_LOADING) {
     return {...state, loading: true}
   }

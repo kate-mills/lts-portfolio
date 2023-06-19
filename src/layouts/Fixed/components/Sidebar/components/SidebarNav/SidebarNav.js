@@ -38,10 +38,8 @@ const SidebarNav = ({pages, onClose}) => {
                 return (
                   <Box marginBottom={1 / 2} key={i}>
                     <Button
-                      component={p.target ? 'a' : Link}
-                      href={p.href}
+                      component={Link}
                       to={p.href}
-                      target={p.target}
                       fullWidth
                       sx={{
                         justifyContent: 'flex-start',

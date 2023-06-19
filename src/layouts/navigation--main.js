@@ -2,40 +2,33 @@ const pages = {
   landings: [
     {
       title: 'MC Clinical Skin Care',
-      href: 'https://michelecorleyclinicalskincare.com/',
-      target: '_blank',
+      href: '/'
+      //href: 'https://michelecorleyclinicalskincare.com/',
     },
     {
       title: 'Ally Digital Solutions',
-      href: 'https://allydigitalsolutions.com/',
-      target: '_blank',
+      href: '/'
+      //href: 'https://allydigitalsolutions.com/',
     },
     {
       title: 'Art Translated Mobile Apps',
-      href: 'https://arttranslated.netlify.app/',
-      target: '_blank',
-    },
+      href: '/'
+      //href: 'https://arttranslated.netlify.app/',
+    }
   ],
   portfolio: [
     {
       title: 'SnapScape',
-      href: '/snapscape/',
+      href: '/snapscape/'
     },
     {
       title: 'MixMaster',
-      href: '/mixmaster/',
-    },
-    {
-      title: 'ColorCraft:Palette Pro',
-      href: 'https://katemillsco.com/color-scheme-generator/',
-      target: '_blank',
-    },
-    {
-      title: 'ChromaBlend',
-      href: 'https://katemillsco.com/tints-and-shades',
-      target: '_blank',
-    },
-  ],
-};
+      href: '/mixmaster/'
+    }
 
-export default pages;
+    //{ title: 'ColorCraft:Palette Pro', href: 'https://katemillsco.com/color-scheme-generator/', target: '_blank', },
+    //{ title: 'ChromaBlend', href: 'https://katemillsco.com/tints-and-shades', target: '_blank', },
+  ]
+}
+
+export default pages

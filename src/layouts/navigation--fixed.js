@@ -3,11 +3,7 @@ const pages = [
     groupTitle: 'Professional',
     id: 'professional',
     pages: [
-      {
-        title: 'Michele Corley Skin Care',
-        href: 'https://michelecorleyclinicalskincare.com/',
-        target: '_blank'
-      }
+      //{ title: 'Michele Corley Skin Care', href: 'https://michelecorleyclinicalskincare.com/', target: '_blank', }
     ]
   },
   {
@@ -16,21 +12,17 @@ const pages = [
     pages: [
       {
         title: 'MixMaster',
-        href: '/mixmaster/'
+        href: '/mixmaster/',
+        to: '/mixmaster/',
+        target: '',
       },
-      {
-        title: 'ColorCraft: Palette Pro',
-        href: 'https://katemillsco.com/color-scheme-generator/',
-        target: '_blank'
-      },
-      {
-        title: 'ChromaBlend',
-        href: 'https://katemillsco.com/tints-and-shades/',
-        target: '_blank'
-      },
+      //{ title: 'ColorCraft: Palette Pro', href: 'https://katemillsco.com/color-scheme-generator/', to: '', target: '_blank', },
+      //{ title: 'ChromaBlend', href: 'https://katemillsco.com/tints-and-shades/', to: '', target: '_blank', },
       {
         title: 'SnapScape',
-        href: '/snapscape/'
+        to: '/snapscape/',
+        href: '/snapscape/',
+        target: '',
       }
     ]
   },
@@ -38,32 +30,16 @@ const pages = [
     groupTitle: 'Node.JS',
     id: 'node-js',
     pages: [
-      {
-        title: 'Sudoku Solver',
-        href: 'https://sudoku-solver.kate-mills.repl.co/',
-        target: '_blank'
-      },
-      {
-        title: 'QA Projects',
-        href: 'https://replit.com/@kate-mills?path=folder/public',
-        target: '_blank'
-      }
+      //{ title: 'Sudoku Solver', href: 'https://sudoku-solver.kate-mills.repl.co/', to: '', target: '_blank' },
+      //{ title: 'QA Projects', href: 'https://replit.com/@kate-mills?path=folder/public', to: '', target: '_blank' }
     ]
   },
   {
     groupTitle: 'On Social',
     id: 'on-social',
     pages: [
-      {
-        title: 'GitHub',
-        href: 'https://github.com/kate-mills',
-        target: '_blank'
-      },
-      {
-        title: 'LinkedIn',
-        href: 'https://www.linkedin.com/in/kate-mills-napa/',
-        target: '_blank'
-      }
+      //{ title: 'GitHub', href: 'https://github.com/kate-mills', to: '', target: '_blank' },
+      //{ title: 'LinkedIn', href: 'https://www.linkedin.com/in/kate-mills-napa/', to: '', target: '_blank' }
     ]
   }
 ]

@@ -86,8 +86,7 @@ const NavItem = ({title, id, items, colorInvert = false}) => {
           {items.map((p, i) => (
             <Grid item key={i} xs={items.length > 12 ? 6 : 12}>
               <Button
-                component={p.target ? 'a' : Link}
-                href={p.href}
+                component={Link}
                 to={p.href}
                 fullWidth
                 sx={{

@@ -1,0 +1,67 @@
+@page {
+  size: portrait;
+}
+
+@media print {
+  html {
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+  }
+  body {
+    visibility: hidden;
+    overflow: hidden;
+    background: #fff;
+  }
+  img,
+  main {
+    display: none;
+  }
+  .print-container {
+    visibility: visible;
+    width: 90%;
+    padding: 5%;
+  }
+  .print-container * {
+    display: contents;
+  }
+  .print-container h4 {
+    display: block;
+    color: #000;
+  }
+  .print-container h6 {
+    display: block;
+    margin-top: 3rem;
+    color: #000;
+  }
+  .print-content-box {
+    visibility: visible;
+  }
+  .print-content-box p {
+    color: rgba(0, 0, 0, 0.9);
+  }
+  .print-content .print-content-box * {
+    visibility: visible;
+  }
+  ul {
+    color: rgb(30, 32, 34);
+  }
+  ul.ingredient-list li.ingredient {
+    width: 100%;
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+  }
+  ul.ingredient-list li.ingredient .ingredient-title {
+    width: 40%;
+    margin-right: 1rem;
+    display: inline-block;
+  }
+}
+
+.ingredient-amount span.isNumber {
+  font-size: small;
+}
+.ingredient-amount span.notNumber {
+  position: relative;
+  bottom: 2px;
+  font-size: smaller;
+}

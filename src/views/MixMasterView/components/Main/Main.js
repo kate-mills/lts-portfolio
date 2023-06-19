@@ -19,19 +19,11 @@ const Column = ({query, data, dataName, isSm = true}) => {
   const theme = useTheme()
   const { palette: { mode, background: {paper} } } = theme
 
-    console.log('*****data', data)
   return (
     <Box>
       {[...data].map((item, i) => {
-        const {
-          id,
-          alt_description,
-          urls: {small, regular},
-          links,
-          tags
-        } = item
+        const { id, alt_description, urls: {small, regular}, links, tags } = item
         let key = `${dataName}--${id}--${i}`
-        console.log(small)
         return (
           <Box
             data-aos="zoom-in-up"

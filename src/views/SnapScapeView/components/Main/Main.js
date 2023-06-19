@@ -34,7 +34,6 @@ const Column = ({query, data, dataName, isSm = true}) => {
           tags
         } = item
         let key = `${dataName}--${id}--${i}`
-        console.log(small)
         return (
           <Box
             data-aos="zoom-in-up"

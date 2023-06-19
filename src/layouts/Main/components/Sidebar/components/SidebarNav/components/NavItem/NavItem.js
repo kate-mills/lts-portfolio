@@ -47,8 +47,7 @@ const NavItem = ({ title, items }) => {
               <Grid item key={i} xs={12}>
                 <Button
                   size={'large'}
-                  component={p.target ? 'a' : Link}
-                  href={p.href}
+                  component={Link}
                   to={p.href}
                   fullWidth
                   sx={{

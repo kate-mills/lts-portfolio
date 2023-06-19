@@ -1,1 +1,1 @@
-export { default } from './Drink';
+export { default } from './DrinkWithTabs';

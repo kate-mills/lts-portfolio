@@ -51,7 +51,6 @@ const UnsplashProvider = ({children}) => {
           dispatch({type: FETCH_ADDITIONAL, payload: {images: result?.response?.results, pg: pg + 1}})
         })
         .then((response) => {
-          console.log('sencond them', response)
           dispatch({type: UNSET_LOADING})
         })
         .catch((err) => {

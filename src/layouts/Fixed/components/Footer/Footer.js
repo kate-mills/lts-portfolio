@@ -24,8 +24,7 @@ const Footer = () => {
           <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
             <Box marginTop={1} marginRight={2}>
               <Link underline="none" to="/" color="text.primary" variant={'subtitle2'}>
-                {' '}
-                Home{' '}
+                Home
               </Link>
             </Box>
             <Box marginTop={1}>
