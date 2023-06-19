@@ -2,8 +2,6 @@ import React from 'react'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
-
 
 import Container from 'components/Container'
 
@@ -20,7 +18,7 @@ const ShowcaseGrid = ({data = {}}) => {
                 <img
                   src={item.strDrinkThumb}
                   alt={item.strDrink}
-                  loading="lazy"
+                  loading="eager"
                   style={{
                     filter: 'brightness(0.7)',
                     borderRadius: 8,
@@ -33,13 +31,8 @@ const ShowcaseGrid = ({data = {}}) => {
                   <Typography color={'common.white'} fontWeight={700} variant={'h6'}>
                     {item.strDrink}
                   </Typography>
-                  <Typography color={'common.white'}>{item.strGlass}
-
-            </Typography>
-
-           <ShowcasePopover item={item}/>
-
-            
+                  <Typography color={'common.white'}>{item.strGlass}</Typography>
+                  <ShowcasePopover item={item} />
                 </Box>
               </Box>
             </Grid>

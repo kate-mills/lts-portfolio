@@ -60,74 +60,70 @@ const Simple = ({item = {}}) => {
           />
         </Box>
         <Popover
+          id={item.idDrink}
           className={!!open ? 'print-container' : ''}
-          elevation={1}
+          elevation={8}
+          variant={'elevation'}
           open={open}
           anchorEl={anchorEl}
+          anchorReference="anchorPosition"
           onClose={handleClose}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'center'
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'center'
-          }}
+          anchorPosition={{top: 60, left: 450}}
+          anchorOrigin={{vertical: 'top', horizontal: 'left'}}
+          transformOrigin={{vertical: 'top', horizontal: 'right'}}
           sx={{
             '.MuiPaper-root': {
-              marginY: 2,
               paddingY: 4,
-              paddingX: 2
-            }
+              paddingX: 2,
+            },
           }}
         >
-          <Box className={!!open ? 'print-content-box' : ''}>
+          <Box className={!!open ? 'print-content-box' : ''} variant={'elevation'}>
             <Box className={!!open ? 'print-content' : ''}>
               <Box p={2} w={'100%'} maxWidth={360}>
-                <Typography variant={'h4'}> {item.strDrink} </Typography>
-
-                <Typography variant={'body1'} color={'text.secondary'} mb={2}>
-                  {' '}
-                  {item.strGlass}{' '}
+                <Stack direction="row" justifyContent="space-between" alignItems="flex-start" spacing={0.5}>
+                  <Box className={'mixmaster-header'}>
+                    <Typography variant={'h4'}> {item.strDrink} </Typography>
+                    <Typography variant={'body1'} color={'text.secondary'} mb={1} sx={{fontFamily: 'calliope-mvb, sans-serif', fontSize: '1.1875rem'}}>
+                      {item.strGlass}
+                    </Typography>
+                  </Box>
+                  <img
+                    className={'mixmaster-img thumbnail'}
+                    src={item.strDrinkThumb}
+                    alt={item.strDrink}
+                    loading="eager"
+                    style={{
+                      filter: 'brightness(0.7)',
+                      borderRadius: 8,
+                      width: '30%',
+                      height: '30%',
+                      objectFit: 'cover'
+                    }}
+                  />
+                </Stack>
+                <Typography gutterBottom variant={'h6'} mt={1}>
+                  Ingredients
                 </Typography>
-
-                <Typography variant={'h6'}>Ingredients</Typography>
-                <List className={'ingredient-list'} dense={true} sx={{width: '100%'}}>
+                <List className={'ingredient-list'} dense={true} sx={{width: '100%', paddingTop: 0}}>
                   {ingredients.map((ing) => {
                     return ing.title ? (
-                      <ListItem className={'ingredient'} key={ing.title} divider={true}>
-                        <Typography className={'ingredient-title'} variant={'overline'} sx={{width: '60%'}} mr={3}>
+                      <ListItem className={'ingredient'} key={ing.title} divider={true} w={'100%'}>
+                        <Typography
+                          className={'ingredient-title'}
+                          variant={'body2'}
+                          sx={{minWidth: '50%', width: '50%', marginRight: '8px', maxWidth: '40%'}}
+                        >
                           {ing.title}
                         </Typography>
-                        <Typography
-                          variant={'caption'}
-                          sx={{width: '30%', textAlign: 'left'}}
-                          className="ingredient-amount"
-                        >
-                          {ing.amount
-                            ? ing.amount
-                                .trim()
-                                .split('')
-                                .map((letter, i) => {
-                                  return (
-                                    <span
-                                      key={`${letter}-${i}`}
-                                      className={
-                                        isNaN(letter) ? (letter !== '/' ? 'notNumber' : 'isNumber') : 'isNumber'
-                                      }
-                                    >
-                                      {letter}
-                                    </span>
-                                  )
-                                })
-                            : null}
-                        </Typography>
+                        <Typography variant={'body2'}>{ing.amount}</Typography>
                       </ListItem>
                     ) : null
                   })}
                 </List>
-
-                <Typography variant={'h6'}>Instructions</Typography>
+                <Typography gutterBottom variant={'h6'} mt={1}>
+                  Instructions
+                </Typography>
                 <Typography variant={'body2'}>{item.strInstructions}</Typography>
               </Box>
             </Box>

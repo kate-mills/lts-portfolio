@@ -4,7 +4,7 @@ import Box from '@mui/material/Box'
 
 import FluidLayout from 'layouts/Main'
 import Container from 'components/Container'
-import {Hero, WithCtaButton, ShowcaseGrid} from './components'
+import {Hero, ShowcaseGrid} from './components'
 
 import {UseMixMasterContext} from 'context/mixmaster'
 
