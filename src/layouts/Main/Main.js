@@ -61,7 +61,7 @@ const Main = ({children, colorInvert = false, bgcolor = 'transparent'}) => {
     <Stack direction={'row'} justifyContent={'flex-end'} spacing={2} alignItems={'center'}>
 
     <Stack direction={'row'} spacing={.5} alignItems={'center'}>
-      <Chip label="New" variant={'outlined'} size={'small'} sx={{fontSize: 'xx-small', height: '2em'}} color={'info'}/>
+      <Chip label="New" variant={'outlined'} size={'small'} sx={{fontSize: 'xx-small', height: '2em'}} color={'secondary'}/>
     <Link to={'/mixmaster/'}>MixMaster</Link>
     </Stack>
     <Link to={'/snapscape/'}>SnapScape</Link>
