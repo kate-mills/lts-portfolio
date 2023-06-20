@@ -42,7 +42,7 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
         <Box mr={2}>
           <NavItem
-            title={'LLLLandings'}
+            title={'Landings'}
             id={'landing-pages'}
             items={landingPages}
           />

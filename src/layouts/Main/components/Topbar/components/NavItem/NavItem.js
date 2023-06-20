@@ -11,10 +11,6 @@ import Link from 'components/Link'
 
 const NavItem = ({title, id, items, colorInvert = false}) => {
   const theme = useTheme()
-  console.log('**********')
-  console.log('I am a navItem', title)
-  console.log('**********')
-
   const [anchorEl, setAnchorEl] = useState(null)
   const [openedPopoverId, setOpenedPopoverId] = useState(null)
 
@@ -33,7 +29,7 @@ const NavItem = ({title, id, items, colorInvert = false}) => {
     setActiveLink(window && window.location ? window.location.pathname : '')
   }, [])
 
-  const hasActiveLink = () => items.find((i) => i.href === activeLink)
+  //const hasActiveLink = () => items.find((i) => i.href === activeLink)
   const linkColor = colorInvert ? 'common.white' : 'text.primary'
 
   return (
@@ -45,7 +41,7 @@ const NavItem = ({title, id, items, colorInvert = false}) => {
         sx={{cursor: 'pointer'}}
         onClick={(e) => handleClick(e, id)}
       >
-        <Typography color={hasActiveLink() ? 'text.primary' : 'text.secondary'}>
+        <Typography variant={'body1'} color={'text.primary'}>
           {title}
         </Typography>
         <ExpandMoreIcon
