@@ -5,8 +5,6 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import AppBar from '@mui/material/AppBar'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack'
 import Link from 'components/Link'
