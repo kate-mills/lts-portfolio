@@ -6,8 +6,12 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
 
 const Simple = ({item = {}}) => {
+  const handlePrint=()=> {
+    window.print()
+  }
   const [open, setOpen] = useState(false)
   const [anchorEl, setAnchorEl] = useState(null)
   const handleClick = (event) => {
@@ -42,7 +46,6 @@ const Simple = ({item = {}}) => {
     <Box
       maxWidth={{sm: 720, md: 1236}}
       width={1}
-      //margin={'0 auto'}
       paddingRight={2}
       paddingY={2}
     >
@@ -126,6 +129,7 @@ const Simple = ({item = {}}) => {
                 </Typography>
                 <Typography variant={'body2'}>{item.strInstructions}</Typography>
               </Box>
+              <Box className={'print-btn'} ml={1.5}><Button onClick={handlePrint} variant={'outlined'} sx={{paddingY: 0.5}}>Print</Button></Box>
             </Box>
           </Box>
         </Popover>
