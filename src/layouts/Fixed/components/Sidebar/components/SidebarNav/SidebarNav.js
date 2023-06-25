@@ -63,7 +63,7 @@ const SidebarNav = ({pages, onClose}) => {
         </Button>
       </Box>
       <Box marginTop={1}>
-        <Button variant="contained" color="primary" fullWidth component={Link} to="/">
+        <Button variant="contained" color="primary" fullWidth component={Link} to="/contact">
           Contact Me
         </Button>
       </Box>

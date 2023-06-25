@@ -7,7 +7,6 @@ import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import Divider from '@mui/material/Divider'
 import InputAdornment from '@mui/material/InputAdornment'
-import HeroImg from 'images/texture.jpg'
 import Stack from '@mui/material/Stack'
 import Chip from '@mui/material/Chip'
 
@@ -42,7 +41,7 @@ const Hero = ({img}) => {
       position={'relative'}
       sx={{
         backgroundColor: dark,
-        background: `url(${img?.urls?.full || HeroImg})`,
+        background: `url(${img?.urls?.full || ''})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center center'
       }}

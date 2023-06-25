@@ -58,7 +58,7 @@ const SidebarNav = ({ pages }) => {
             color="primary"
             fullWidth
             component={Link}
-            to="/"
+            to="/contact"
           >
             Contact Me
           </Button>

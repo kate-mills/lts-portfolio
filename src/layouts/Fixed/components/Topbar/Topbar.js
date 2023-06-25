@@ -28,8 +28,8 @@ const Topbar = ({onSidebarOpen}) => {
           <ThemeModeToggler />
         </Box>
         <Box marginLeft={3}>
-          <Button variant="contained" color="primary" component={Link} to="/" size="med">
-            Contact Me{' '}
+          <Button variant="contained" color="primary" component={Link} to="/contact" size="med">
+            Contact Me
           </Button>
         </Box>
       </Box>

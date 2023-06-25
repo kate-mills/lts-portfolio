@@ -60,7 +60,7 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
             variant="contained"
             color="primary"
             component={Link}
-            to="/"
+            to="/contact"
             size="large"
           >
             Contact

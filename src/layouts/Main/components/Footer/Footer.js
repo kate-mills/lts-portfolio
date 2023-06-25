@@ -43,22 +43,12 @@ const Footer = () => {
                 Home
               </Link>
             </Box>
-            <Box marginTop={1} marginRight={2}>
-              <Link
-                underline="none"
-                to="/"
-                color="text.primary"
-                variant={'subtitle2'}
-              >
-                Documentation
-              </Link>
-            </Box>
             <Box marginTop={1}>
               <Button
                 variant="outlined"
                 color="primary"
                 component={Link}
-                to="/"
+                to="/contact"
                 size="small"
               >
                 Contact Me
