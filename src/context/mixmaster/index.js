@@ -2,12 +2,7 @@
 
 import React, {createContext, useContext, useEffect, useReducer} from 'react'
 import axios from 'axios'
-import {
-  FETCH_DATA,
-  UPDATE_QUERY_STRING,
-  FETCH_COCKTAIL_ID,
-  UPDATE_COCKTAIL_ID
- } from './actions'
+import {FETCH_DATA, UPDATE_QUERY_STRING, FETCH_COCKTAIL_ID, UPDATE_COCKTAIL_ID} from './actions'
 
 import reducer from './reducer'
 

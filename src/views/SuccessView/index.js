@@ -1,1 +1,1 @@
-export { default } from './SuccessView';
+export {default} from './SuccessView'

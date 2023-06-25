@@ -9,14 +9,13 @@ const FourOFourPage = () => {
 
 export default FourOFourPage
 
-
 export const Head = ({location}) => {
   return (
-    <Seo 
-    location={location} 
-    pageContext={{
-      title: 'Oops!',
-    }}
+    <Seo
+      location={location}
+      pageContext={{
+        title: 'Oops!'
+      }}
     />
   )
 }

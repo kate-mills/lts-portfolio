@@ -12,10 +12,14 @@ export default MixMasterPage
 
 export const Head = ({location}) => {
   return (
-    <Seo location={location} pageContext={{
-      title: 'MixMaster',
-        description: 'From classic concoctions to trendy mixology marvels, MixMaster serves up a comprehensive database of recipes, ingredients, and step-by-step instructions.',
-        image: SeoImg,
-    }}/>
+    <Seo
+      location={location}
+      pageContext={{
+        title: 'MixMaster',
+        description:
+          'From classic concoctions to trendy mixology marvels, MixMaster serves up a comprehensive database of recipes, ingredients, and step-by-step instructions.',
+        image: SeoImg
+      }}
+    />
   )
 }

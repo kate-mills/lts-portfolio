@@ -1,1 +1,1 @@
-export { default } from './ShowcaseGrid';
+export {default} from './ShowcaseGrid'

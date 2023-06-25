@@ -15,12 +15,13 @@ import Container from 'components/Container'
 
 import Button from '@mui/material/Button'
 
-
 const Hero = ({query}) => {
   const theme = useTheme()
   const {primary} = theme.palette
 
-  const { updateQueryString, state: {trending}
+  const {
+    updateQueryString,
+    state: {trending}
   } = UseMixMasterContext()
 
   const [inputValue, setInputValue] = React.useState('')
@@ -156,12 +157,28 @@ const Hero = ({query}) => {
                     }}
                   />
                 </Box>
-                <Box> <Button type="submit" sx={{height: 54, whiteSpace: 'nowrap'}} variant="contained" color="primary" size="medium" fullWidth >Search MixMaster </Button> </Box>
+                <Box>
+                  {' '}
+                  <Button
+                    type="submit"
+                    sx={{height: 54, whiteSpace: 'nowrap'}}
+                    variant="contained"
+                    color="primary"
+                    size="medium"
+                    fullWidth
+                  >
+                    Search MixMaster{' '}
+                  </Button>{' '}
+                </Box>
               </Box>
             </form>
-            <Box marginY={4} marginX={{xs: -3, sm: -6}}><Divider /></Box>
+            <Box marginY={4} marginX={{xs: -3, sm: -6}}>
+              <Divider />
+            </Box>
             <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" alignItems={'baseline'}>
-              <Typography component={'p'} variant="body2" align="left">Trending: </Typography>
+              <Typography component={'p'} variant="body2" align="left">
+                Trending:{' '}
+              </Typography>
               {[...trending].map((title, i) => {
                 let isQueryMatch = title.toLowerCase() === query.toLowerCase()
                 return (

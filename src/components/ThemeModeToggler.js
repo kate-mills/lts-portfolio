@@ -1,11 +1,11 @@
-import React from 'react';
-import Button from '@mui/material/Button';
-import { alpha, useTheme } from '@mui/material/styles';
+import React from 'react'
+import Button from '@mui/material/Button'
+import {alpha, useTheme} from '@mui/material/styles'
 
 const ThemeModeToggler = () => {
-  const theme = useTheme();
-  const { themeToggler } = theme;
-  const { mode } = theme.palette;
+  const theme = useTheme()
+  const {themeToggler} = theme
+  const {mode} = theme.palette
 
   return (
     <Button
@@ -17,7 +17,7 @@ const ThemeModeToggler = () => {
         borderRadius: 2,
         minWidth: 'auto',
         padding: 1,
-        borderColor: alpha(theme.palette.divider, 0.2),
+        borderColor: alpha(theme.palette.divider, 0.2)
       }}
     >
       {mode === 'light' ? (
@@ -54,7 +54,7 @@ const ThemeModeToggler = () => {
         </svg>
       )}
     </Button>
-  );
-};
+  )
+}
 
-export default ThemeModeToggler;
+export default ThemeModeToggler

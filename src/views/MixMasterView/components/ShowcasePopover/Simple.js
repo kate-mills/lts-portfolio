@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 
 const Simple = ({item = {}}) => {
-  const handlePrint=()=> {
+  const handlePrint = () => {
     window.print()
   }
   const [open, setOpen] = useState(false)
@@ -43,12 +43,7 @@ const Simple = ({item = {}}) => {
   }
 
   return (
-    <Box
-      maxWidth={{sm: 720, md: 1236}}
-      width={1}
-      paddingRight={2}
-      paddingY={2}
-    >
+    <Box maxWidth={{sm: 720, md: 1236}} width={1} paddingRight={2} paddingY={2}>
       <Box display={'flex'} justifyContent={'flex-start'}>
         <Box display={'flex'} alignItems={'center'} sx={{cursor: 'pointer'}} onClick={(e) => handleClick(e)}>
           <Typography color={'common.white'}>Learn how to make it</Typography>
@@ -77,8 +72,8 @@ const Simple = ({item = {}}) => {
           sx={{
             '.MuiPaper-root': {
               paddingY: 4,
-              paddingX: 2,
-            },
+              paddingX: 2
+            }
           }}
         >
           <Box className={!!open ? 'print-content-box' : ''} variant={'elevation'}>
@@ -87,7 +82,12 @@ const Simple = ({item = {}}) => {
                 <Stack direction="row" justifyContent="space-between" alignItems="flex-start" spacing={0.5}>
                   <Box className={'mixmaster-header'}>
                     <Typography variant={'h4'}> {item.strDrink} </Typography>
-                    <Typography variant={'body1'} color={'text.secondary'} mb={1} sx={{fontFamily: 'calliope-mvb, sans-serif', fontSize: '1.1875rem'}}>
+                    <Typography
+                      variant={'body1'}
+                      color={'text.secondary'}
+                      mb={1}
+                      sx={{fontFamily: 'calliope-mvb, sans-serif', fontSize: '1.1875rem'}}
+                    >
                       {item.strGlass}
                     </Typography>
                   </Box>
@@ -129,7 +129,11 @@ const Simple = ({item = {}}) => {
                 </Typography>
                 <Typography variant={'body2'}>{item.strInstructions}</Typography>
               </Box>
-              <Box className={'print-btn'} ml={1.5}><Button onClick={handlePrint} variant={'outlined'} sx={{paddingY: 0.5}}>Print</Button></Box>
+              <Box className={'print-btn'} ml={1.5}>
+                <Button onClick={handlePrint} variant={'outlined'} sx={{paddingY: 0.5}}>
+                  Print
+                </Button>
+              </Box>
             </Box>
           </Box>
         </Popover>

@@ -6,7 +6,6 @@ const encode = (data) => {
     .join('&')
 }
 
-
 const handleSubmitContactForm = async (values, actions) => {
   actions.setSubmitting(true)
   fetch('/', {
@@ -25,6 +24,5 @@ const handleSubmitContactForm = async (values, actions) => {
       navigate('/success')
     })
 }
-
 
 export {handleSubmitContactForm}

@@ -1,1 +1,1 @@
-export { default } from './ColorsView';
+export {default} from './ColorsView'

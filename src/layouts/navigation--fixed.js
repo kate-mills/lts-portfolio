@@ -14,7 +14,7 @@ const pages = [
         title: 'MixMaster',
         href: '/mixmaster/',
         to: '/mixmaster/',
-        target: '',
+        target: ''
       },
       //{ title: 'ColorCraft: Palette Pro', href: 'https://katemillsco.com/color-scheme-generator/', to: '', target: '_blank', },
       //{ title: 'ChromaBlend', href: 'https://katemillsco.com/tints-and-shades/', to: '', target: '_blank', },
@@ -22,7 +22,7 @@ const pages = [
         title: 'SnapScape',
         to: '/snapscape/',
         href: '/snapscape/',
-        target: '',
+        target: ''
       }
     ]
   },

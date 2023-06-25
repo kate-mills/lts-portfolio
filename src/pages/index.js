@@ -12,13 +12,13 @@ export default IndexPage
 
 export const Head = ({location}) => {
   return (
-    <Seo 
-    location={location} 
-    pageContext={{
-      title: 'Kate Mills Company',
+    <Seo
+      location={location}
+      pageContext={{
+        title: 'Kate Mills Company',
         description: '',
-        image: SeoImg,
-    }}
+        image: SeoImg
+      }}
     />
   )
 }

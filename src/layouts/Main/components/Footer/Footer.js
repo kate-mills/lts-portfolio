@@ -1,14 +1,12 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Link from 'components/Link';
+import React from 'react'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
+import Link from 'components/Link'
 import Logo from 'svg/Logo'
 
-
 const Footer = () => {
-
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -17,40 +15,19 @@ const Footer = () => {
           justifyContent={'space-between'}
           alignItems={'center'}
           width={1}
-          flexDirection={{ xs: 'column', sm: 'row' }}
+          flexDirection={{xs: 'column', sm: 'row'}}
         >
-          <Box
-            display={'flex'}
-            component={Link}
-            to="/"
-            title="kateMills"
-            width={80}
-          >
-            <Box
-              component={Logo}
-    height={1}
-              width={1}
-            />
+          <Box display={'flex'} component={Link} to="/" title="kateMills" width={80}>
+            <Box component={Logo} height={1} width={1} />
           </Box>
           <Box display="flex" flexWrap={'wrap'} alignItems={'center'}>
             <Box marginTop={1} marginRight={2}>
-              <Link
-                underline="none"
-                to="/"
-                color="text.primary"
-                variant={'subtitle2'}
-              >
+              <Link underline="none" to="/" color="text.primary" variant={'subtitle2'}>
                 Home
               </Link>
             </Box>
             <Box marginTop={1}>
-              <Button
-                variant="outlined"
-                color="primary"
-                component={Link}
-                to="/contact"
-                size="small"
-              >
+              <Button variant="outlined" color="primary" component={Link} to="/contact" size="small">
                 Contact Me
               </Button>
             </Box>
@@ -58,24 +35,15 @@ const Footer = () => {
         </Box>
       </Grid>
       <Grid item xs={12}>
-        <Typography
-          align={'center'}
-          variant={'subtitle2'}
-          color="text.secondary"
-          gutterBottom
-        >
+        <Typography align={'center'} variant={'subtitle2'} color="text.secondary" gutterBottom>
           &copy; kateMills. 2023. All rights reserved
         </Typography>
-        <Typography
-          align={'center'}
-          variant={'caption'}
-          color="text.secondary"
-          component={'p'}
-        >Thank you for taking the time to check out my work!
+        <Typography align={'center'} variant={'caption'} color="text.secondary" component={'p'}>
+          Thank you for taking the time to check out my work!
         </Typography>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
