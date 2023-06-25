@@ -59,7 +59,7 @@ const Contact = () => {
         </Typography>
       </Box>
       <Box>
-        <form onSubmit={formik.handleSubmit} name="contact" netlify>
+        <form name="contact" method="POST" data-netlify="true">
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6}>
               <TextField
