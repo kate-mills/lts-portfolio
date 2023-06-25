@@ -1,6 +1,7 @@
 export {default as ColorsView} from './ColorsView'
 export {default as ContactView} from './ContactView'
 export {default as IndexView} from './IndexView'
+export {default as MixMasterView} from './MixMasterView'
 export {default as NotFoundView} from './NotFoundView'
 export {default as SnapScapeView} from './SnapScapeView'
-export {default as MixMasterView} from './MixMasterView'
+export {default as SuccessView} from './SuccessView'

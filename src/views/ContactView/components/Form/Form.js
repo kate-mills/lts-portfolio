@@ -3,12 +3,12 @@ import React from 'react'
 import {useFormik} from 'formik'
 import * as yup from 'yup'
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import Divider from '@mui/material/Divider'
 import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-import {useTheme} from '@mui/material/styles'
+import Divider from '@mui/material/Divider'
+import {handleSubmitContactForm} from 'utils/form-helper'
 
 const validationSchema = yup.object({
   firstName: yup
@@ -28,7 +28,6 @@ const validationSchema = yup.object({
 })
 
 const Contact = () => {
-  const theme = useTheme()
 
   const initialValues = {
     firstName: '',
@@ -37,16 +36,7 @@ const Contact = () => {
     message: ''
   }
 
-  const onSubmit = (values) => {
-    return values
-  }
-
-  const formik = useFormik({
-    initialValues,
-    validationSchema: validationSchema,
-    onSubmit
-  })
-
+  const formik = useFormik({initialValues, validationSchema: validationSchema, onSubmit: handleSubmitContactForm})
   return (
     <Box maxWidth={600} margin={'0 auto'}>
       <Box marginBottom={4}>
@@ -59,7 +49,7 @@ const Contact = () => {
         </Typography>
       </Box>
       <Box>
-        <form name="contact" method="POST" data-netlify="true">
+        <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -129,10 +119,17 @@ const Contact = () => {
               </Button>
             </Grid>
             <Grid item container justifyContent={'center'} xs={12}>
-              <Typography color="text.secondary">I'll get back to you in 1-2 business days.</Typography>
+              <Typography color="text.secondary"></Typography>
             </Grid>
             <Grid item xs={12}>
               <Divider />
+            </Grid>
+            <Grid item container justifyContent={'center'} xs={12}>
+              <Box>
+                <Typography component="p" variant="body2" align="left">
+                  I'll get back to you in 1-2 business days.
+                </Typography>
+              </Box>
             </Grid>
           </Grid>
         </form>
