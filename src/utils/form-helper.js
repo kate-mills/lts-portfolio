@@ -12,7 +12,7 @@ const handleSubmitContactForm = async (values, actions) => {
   fetch('/', {
     method: 'POST',
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: encode({'form-name': 'fullname-contact-form', ...values})
+    body: encode({'form-name': 'contact-form', ...values})
   })
     .then(() => {
       console.log('success')

@@ -28,7 +28,6 @@ const validationSchema = yup.object({
 })
 
 const Contact = () => {
-
   const initialValues = {
     firstName: '',
     lastName: '',
@@ -49,7 +48,7 @@ const Contact = () => {
         </Typography>
       </Box>
       <Box>
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} data-netlify={true} name={'contact-form'} method="POST">
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6}>
               <TextField
