@@ -48,7 +48,8 @@ const Contact = () => {
         </Typography>
       </Box>
       <Box>
-        <form onSubmit={formik.handleSubmit} data-netlify={true} name={'contact-form'} method="POST">
+        <form onSubmit={formik.handleSubmit} data-netlify={'true'} name={'contact-form'} method="POST">
+          <input type="hidden" name="form-name" value="contact-form" />
           <Grid container spacing={4}>
             <Grid item xs={12} sm={6}>
               <TextField
