@@ -21,8 +21,6 @@ export default function TopLayout(props) {
         <meta name="og:site_name" content="Kate Mills Portfolio" />
         <meta name="og:type" content="website" />
         <link rel="stylesheet" href="https://use.typekit.net/cku7ykx.css" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
       </Helmet>
       <Page>{props.children}</Page>
     </React.Fragment>

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import '@fontsource-variable/inter'
+
 import {UnsplashProvider} from './src/context/unsplash'
 import {MixMasterProvider} from './src/context/mixmaster'
 
