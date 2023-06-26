@@ -84,54 +84,55 @@ const NavItem = ({title, id, items, colorInvert = false}) => {
         <Grid container spacing={0.5}>
           {items.map((p, i) => {
             let {isLocal, isNew, href, title} = p
-            return isLocal ?(
-            <Grid item key={i} xs={items.length > 12 ? 6 : 12}>
-              <Button
-                component={Link}
-                to={href}
-                fullWidth
-                sx={{
-                  justifyContent: 'flex-start',
-                  color: activeLink === href ? theme.palette.primary.main : theme.palette.text.primary,
-                  backgroundColor: activeLink === href ? alpha(theme.palette.primary.main, 0.1) : 'transparent',
-                  fontWeight: activeLink === p.href ? 600 : 400
-                }}
-              >
-                {title}
-                {isNew && (
-                  <Box padding={0.5} display={'inline-flex'} borderRadius={1} bgcolor={'primary.main'} marginLeft={2}>
-                    <Typography variant={'caption'} sx={{color: 'common.white', lineHeight: 1}}>
-                      new
-                    </Typography>
-                  </Box>
-                )}
-              </Button>
-            </Grid>
-            ): (
-            <Grid item key={i} xs={items.length > 12 ? 6 : 12}>
-              <Button
-                component={'a'}
-                href={href}
-                target="_blank"
-                fullWidth
-                sx={{
-                  justifyContent: 'flex-start',
-                  color: theme.palette.text.primary,
-                  backgroundColor: 'transparent',
-                  fontWeight: 400,
-                }}
-              >
-                {title}
-                {isNew && (
-                  <Box padding={0.5} display={'inline-flex'} borderRadius={1} bgcolor={'primary.main'} marginLeft={2}>
-                    <Typography variant={'caption'} sx={{color: 'common.white', lineHeight: 1}}>
-                      new
-                    </Typography>
-                  </Box>
-                )}
-              </Button>
-            </Grid>
-            )})}
+            return isLocal ? (
+              <Grid item key={i} xs={items.length > 12 ? 6 : 12}>
+                <Button
+                  component={Link}
+                  to={href}
+                  fullWidth
+                  sx={{
+                    justifyContent: 'flex-start',
+                    color: activeLink === href ? theme.palette.primary.main : theme.palette.text.primary,
+                    backgroundColor: activeLink === href ? alpha(theme.palette.primary.main, 0.1) : 'transparent',
+                    fontWeight: activeLink === p.href ? 600 : 400
+                  }}
+                >
+                  {title}
+                  {isNew && (
+                    <Box padding={0.5} display={'inline-flex'} borderRadius={1} bgcolor={'primary.main'} marginLeft={2}>
+                      <Typography variant={'caption'} sx={{color: 'common.white', lineHeight: 1}}>
+                        new
+                      </Typography>
+                    </Box>
+                  )}
+                </Button>
+              </Grid>
+            ) : (
+              <Grid item key={i} xs={items.length > 12 ? 6 : 12}>
+                <Button
+                  component={'a'}
+                  href={href}
+                  target="_blank"
+                  fullWidth
+                  sx={{
+                    justifyContent: 'flex-start',
+                    color: theme.palette.text.primary,
+                    backgroundColor: 'transparent',
+                    fontWeight: 400
+                  }}
+                >
+                  {title}
+                  {isNew && (
+                    <Box padding={0.5} display={'inline-flex'} borderRadius={1} bgcolor={'primary.main'} marginLeft={2}>
+                      <Typography variant={'caption'} sx={{color: 'common.white', lineHeight: 1}}>
+                        new
+                      </Typography>
+                    </Box>
+                  )}
+                </Button>
+              </Grid>
+            )
+          })}
         </Grid>
       </Popover>
     </Box>

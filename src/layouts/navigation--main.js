@@ -16,7 +16,7 @@ const pages = {
       title: 'MixMaster',
       href: '/mixmaster/',
       isLocal: true,
-      isNew: true,
+      isNew: true
     }
   ]
 }

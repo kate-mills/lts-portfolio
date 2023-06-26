@@ -36,7 +36,7 @@ const SidebarNav = ({pages, onClose}) => {
             <Box>
               {item.pages.map((p, i) => {
                 const {title, isLocal, href} = p
-                return isLocal ? ( 
+                return isLocal ? (
                   <Box marginBottom={1 / 2} key={i}>
                     <Button
                       component={Link}
@@ -52,7 +52,7 @@ const SidebarNav = ({pages, onClose}) => {
                       {title}
                     </Button>
                   </Box>
-                ): (
+                ) : (
                   <Box marginBottom={1 / 2} key={i}>
                     <Button
                       component={'a'}
@@ -68,7 +68,6 @@ const SidebarNav = ({pages, onClose}) => {
                       {p.title}
                     </Button>
                   </Box>
-
                 )
               })}
             </Box>
