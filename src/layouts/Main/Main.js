@@ -55,14 +55,16 @@ const Main = ({children, colorInvert = false, bgcolor = 'transparent'}) => {
 
   return (
     <Box id="js--main-top">
-      <Box bgcolor={bgcolor} position={'relative'} zIndex={theme.zIndex.appBar}>
-        <Container paddingTop={'8px !important'} paddingBottom={'0 !important'}>
-          <Stack direction={'row'} justifyContent={'flex-end'} spacing={2} alignItems={'center'}>
-            <Link to={'/mixmaster/'}>MixMaster</Link>
-            <Link to={'/snapscape/'}>SnapScape</Link>
-          </Stack>
-        </Container>
-      </Box>
+      {isMd && (
+        <Box bgcolor={bgcolor} position={'relative'} zIndex={theme.zIndex.appBar}>
+          <Container paddingTop={'8px !important'} paddingBottom={'0 !important'}>
+            <Stack direction={'row'} justifyContent={'flex-end'} spacing={2} alignItems={'center'}>
+              <Link to={'/mixmaster/'}>MixMaster</Link>
+              <Link to={'/snapscape/'}>SnapScape</Link>
+            </Stack>
+          </Container>
+        </Box>
+      )}
       <AppBar
         position={'sticky'}
         sx={{
