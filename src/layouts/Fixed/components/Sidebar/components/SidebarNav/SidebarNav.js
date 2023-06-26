@@ -57,15 +57,16 @@ const SidebarNav = ({pages, onClose}) => {
                     <Button
                       component={'a'}
                       href={href}
+                      target="_blank"
                       fullWidth
                       sx={{
                         justifyContent: 'flex-start',
-                        color: activeLink === href ? theme.palette.primary.main : theme.palette.text.primary,
-                        backgroundColor: activeLink === href ? alpha(theme.palette.primary.main, 0.1) : 'transparent',
-                        fontWeight: activeLink === href ? 600 : 400
+                        color: theme.palette.text.primary,
+                        backgroundColor: 'transparent',
+                        fontWeight: 400
                       }}
                     >
-                      {p.title}
+                      {title}
                     </Button>
                   </Box>
                 )
