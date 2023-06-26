@@ -26,8 +26,8 @@ const SidebarNav = ({pages}) => {
           <NavItem title={'Apps'} items={appsPages} />
         </Box>
         <Box marginTop={2}>
-          <Button size={'large'} variant="outlined" fullWidth component={Link} to="/">
-            Docs
+          <Button size={'large'} variant="outlined" fullWidth component={Link} to="/colors/">
+            Theme
           </Button>
         </Box>
         <Box marginTop={1}>

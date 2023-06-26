@@ -5,7 +5,6 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import AppBar from '@mui/material/AppBar'
-import Chip from '@mui/material/Chip'
 import Stack from '@mui/material/Stack'
 import Link from 'components/Link'
 
@@ -59,16 +58,7 @@ const Main = ({children, colorInvert = false, bgcolor = 'transparent'}) => {
       <Box bgcolor={bgcolor} position={'relative'} zIndex={theme.zIndex.appBar}>
         <Container paddingTop={'8px !important'} paddingBottom={'0 !important'}>
           <Stack direction={'row'} justifyContent={'flex-end'} spacing={2} alignItems={'center'}>
-            <Stack direction={'row'} spacing={0.5} alignItems={'center'}>
-              <Chip
-                label="New"
-                variant={'outlined'}
-                size={'small'}
-                sx={{fontSize: 'xx-small', height: '2em'}}
-                color={'secondary'}
-              />
-              <Link to={'/mixmaster/'}>MixMaster</Link>
-            </Stack>
+            <Link to={'/mixmaster/'}>MixMaster</Link>
             <Link to={'/snapscape/'}>SnapScape</Link>
           </Stack>
         </Container>
@@ -98,7 +88,7 @@ const Main = ({children, colorInvert = false, bgcolor = 'transparent'}) => {
           <Box
             onClick={() => scrollTo('js--main-top')}
             role="presentation"
-            sx={{position: 'fixed', bottom: 24, right: 32, zIndex: 10000}}
+            sx={{position: 'fixed', bottom: 24, right: 32, zIndex: 5501}}
           >
             <Fab color="primary" size="small" aria-label="scroll back to top">
               <KeyboardArrowUpIcon />

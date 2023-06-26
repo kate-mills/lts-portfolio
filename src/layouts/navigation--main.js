@@ -2,32 +2,22 @@ const pages = {
   landings: [
     {
       title: 'MC Clinical Skin Care',
-      href: '/'
-      //href: 'https://michelecorleyclinicalskincare.com/',
-    },
-    {
-      title: 'Ally Digital Solutions',
-      href: '/'
-      //href: 'https://allydigitalsolutions.com/',
-    },
-    {
-      title: 'Art Translated Mobile Apps',
-      href: '/'
-      //href: 'https://arttranslated.netlify.app/',
+      href: 'https://michelecorleyclinicalskincare.com/',
+      isLocal: false
     }
   ],
   apps: [
     {
       title: 'SnapScape',
-      href: '/snapscape/'
+      href: '/snapscape/',
+      isLocal: true
     },
     {
       title: 'MixMaster',
-      href: '/mixmaster/'
+      href: '/mixmaster/',
+      isLocal: true,
+      isNew: true,
     }
-
-    //{ title: 'ColorCraft:Palette Pro', href: 'https://katemillsco.com/color-scheme-generator/', target: '_blank', },
-    //{ title: 'ChromaBlend', href: 'https://katemillsco.com/tints-and-shades', target: '_blank', },
   ]
 }
 

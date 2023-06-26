@@ -35,22 +35,40 @@ const SidebarNav = ({pages, onClose}) => {
             </Typography>
             <Box>
               {item.pages.map((p, i) => {
-                return (
+                const {title, isLocal, href} = p
+                return isLocal ? ( 
                   <Box marginBottom={1 / 2} key={i}>
                     <Button
                       component={Link}
-                      to={p.href}
+                      to={href}
                       fullWidth
                       sx={{
                         justifyContent: 'flex-start',
-                        color: activeLink === p.href ? theme.palette.primary.main : theme.palette.text.primary,
-                        backgroundColor: activeLink === p.href ? alpha(theme.palette.primary.main, 0.1) : 'transparent',
-                        fontWeight: activeLink === p.href ? 600 : 400
+                        color: activeLink === href ? theme.palette.primary.main : theme.palette.text.primary,
+                        backgroundColor: activeLink === href ? alpha(theme.palette.primary.main, 0.1) : 'transparent',
+                        fontWeight: activeLink === href ? 600 : 400
+                      }}
+                    >
+                      {title}
+                    </Button>
+                  </Box>
+                ): (
+                  <Box marginBottom={1 / 2} key={i}>
+                    <Button
+                      component={'a'}
+                      href={href}
+                      fullWidth
+                      sx={{
+                        justifyContent: 'flex-start',
+                        color: activeLink === href ? theme.palette.primary.main : theme.palette.text.primary,
+                        backgroundColor: activeLink === href ? alpha(theme.palette.primary.main, 0.1) : 'transparent',
+                        fontWeight: activeLink === href ? 600 : 400
                       }}
                     >
                       {p.title}
                     </Button>
                   </Box>
+
                 )
               })}
             </Box>
