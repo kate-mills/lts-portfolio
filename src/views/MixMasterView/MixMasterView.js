@@ -10,15 +10,15 @@ import {UseMixMasterContext} from 'context/mixmaster'
 
 const MixMasterView = () => {
   const {
-    state: {data, query}
+    state: {trending, data, query}
   } = UseMixMasterContext()
 
   return (
     <FluidLayout>
       <Box sx={{overflow: 'hidden !important'}} minHeight={'calc(100vh - 179px)'}>
         <Hero query={query} />
-        <Container>
-          <ShowcaseGrid data={data} />
+        <Container paddingTop={'0 !important'}>
+          <ShowcaseGrid data={data} trending={trending} query={query}/>
         </Container>
       </Box>
     </FluidLayout>

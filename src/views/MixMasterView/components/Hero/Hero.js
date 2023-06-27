@@ -4,24 +4,19 @@ import Card from '@mui/material/Card'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import Divider from '@mui/material/Divider'
 import InputAdornment from '@mui/material/InputAdornment'
 import HeroImg from 'images/mixmaster.jpg'
-import Stack from '@mui/material/Stack'
-import Chip from '@mui/material/Chip'
 
 import {UseMixMasterContext} from 'context/mixmaster'
 import Container from 'components/Container'
 
-import Button from '@mui/material/Button'
 
-const Hero = ({query}) => {
+const Hero = () => {
   const theme = useTheme()
   const {primary} = theme.palette
 
   const {
     updateQueryString,
-    state: {trending}
   } = UseMixMasterContext()
 
   const [inputValue, setInputValue] = React.useState('')
@@ -37,22 +32,18 @@ const Hero = ({query}) => {
   React.useEffect(() => {
     focusMethod()
   }, [])
-
   const handleFormSubmit = (e) => {
     e.preventDefault()
     updateQueryString(inputValue)
   }
-
   const handleInputChangeWithString = (str) => {
     setInputValue(str)
     updateQueryString(str)
   }
-
   const handleInputChange = (e) => {
     let str = e.target.value
     handleInputChangeWithString(str)
   }
-
   return (
     <Box
       minHeight={300}
@@ -99,11 +90,10 @@ const Hero = ({query}) => {
               <Box display="flex" flexDirection={{xs: 'column', md: 'row'}}>
                 <Box width={1} marginRight={{xs: 0, md: 2}} marginBottom={{xs: 2, md: 0}}>
                   <TextField
+                    label={'Enter the first few letters of the cocktail name to begin your search'}
                     id="textInputMixMaster"
                     name="textInputMixMaster"
                     onChange={handleInputChange}
-                    //placeholder={'Discover, mix, and sip your way to cocktail bliss'}
-                    placeholder={'Enter a cocktail, or an ingredient'}
                     value={inputValue}
                     sx={{height: 54, opacity: '1'}}
                     variant="outlined"
@@ -111,7 +101,7 @@ const Hero = ({query}) => {
                     size="medium"
                     fullWidth
                     InputProps={{
-                      endAdornment: (
+                      endAdornment: inputValue ? (
                         <InputAdornment position="end">
                           <Box
                             onClick={clearInputValue}
@@ -132,69 +122,20 @@ const Hero = ({query}) => {
                             />
                           </Box>
                         </InputAdornment>
-                      ),
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <Box
-                            component={'svg'}
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            width={24}
-                            height={24}
-                            color={'primary.main'}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                            />
-                          </Box>
-                        </InputAdornment>
-                      )
+                      ) : null
                     }}
                   />
                 </Box>
-                <Box>
-                  {' '}
-                  <Button
-                    type="submit"
-                    sx={{height: 54, whiteSpace: 'nowrap'}}
-                    variant="contained"
-                    color="primary"
-                    size="medium"
-                    fullWidth
-                  >
-                    Search MixMaster{' '}
-                  </Button>{' '}
-                </Box>
               </Box>
             </form>
+
+            {/*
             <Box marginY={4} marginX={{xs: -3, sm: -6}}>
               <Divider />
             </Box>
-            <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" alignItems={'baseline'}>
-              <Typography component={'p'} variant="body2" align="left">
-                Trending:{' '}
-              </Typography>
-              {[...trending].map((title, i) => {
-                let isQueryMatch = title.toLowerCase() === query.toLowerCase()
-                return (
-                  <Chip
-                    size={'small'}
-                    color={'primary'}
-                    variant={'filled'}
-                    key={`${title}-${i}`}
-                    onClick={(e) => handleInputChangeWithString(title)}
-                    label={title}
-                    sx={{marginBottom: 1, marginRight: 1, verticalAlign: 'middle'}}
-                    disabled={isQueryMatch}
-                  />
-                )
-              })}
-            </Stack>
+            */}
+
+
           </Box>
         </Box>
       </Container>

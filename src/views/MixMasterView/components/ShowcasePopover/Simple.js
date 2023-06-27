@@ -66,7 +66,7 @@ const Simple = ({item = {}}) => {
           anchorEl={anchorEl}
           anchorReference="anchorPosition"
           onClose={handleClose}
-          anchorPosition={{top: 60, left: 450}}
+          anchorPosition={{top: 62, left: 450}}
           anchorOrigin={{vertical: 'top', horizontal: 'left'}}
           transformOrigin={{vertical: 'top', horizontal: 'right'}}
           sx={{

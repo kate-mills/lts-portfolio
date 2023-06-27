@@ -1,19 +1,36 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
+import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 
 import Container from 'components/Container'
 
 import ShowcasePopover from '../ShowcasePopover'
+import TrendingTags from '../TrendingTags'
+import {UseMixMasterContext} from 'context/mixmaster'
 
-const ShowcaseGrid = ({data = {}}) => {
+const ShowcaseGrid = ({data = {}, query = ''}) => {
+  const {loading} = UseMixMasterContext()
   return (
     <Box bgcolor={'background.paper'}>
-      <Container>
+      <Container paddingY={'28px !important'}>
+      <Stack
+    direction="row"
+    spacing={1}
+    justifyContent={'space-between'}
+    alignItems={'flex-end'}
+    useFlexGap
+    flexWrap="wrap"
+    >
+    <Typography component={'span'} variant="subtitle2" align="left" minWidth={'30%'} py={.5}> { loading ?  `LOADING...`: `${data.length} COCKTAIL${data.length === 1 ? '': 'S'} FOUND`}</Typography>
+        <Box sx={{display: 'inline-block'}}><TrendingTags/></Box>
+       </Stack>
+      </Container>
+      <Container paddingTop={'0 !important'}>
         <Grid container spacing={{xs: 2, md: 4}}>
           {data.map((item, i) => (
-            <Grid key={item.idDrink} item xs={12} sm={6} md={4}>
+            <Grid key={item.idDrink} item xs={12} sm={6} md={4} data-aos="zoom-in-up">
               <Box width={1} height={1} position={'relative'}>
                 <img
                   src={item.strDrinkThumb}
