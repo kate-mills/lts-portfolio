@@ -23,7 +23,8 @@ const ShowcaseGrid = () => {
           justifyContent={'space-between'}
           alignItems={'flex-end'}
           useFlexGap
-          flexWrap="wrap">
+          flexWrap="wrap"
+        >
           <Typography component={'span'} variant="subtitle2" align="left" minWidth={'30%'} py={1}>
             {loading ? `LOADING...` : `${data.length} COCKTAIL${data.length === 1 ? '' : 'S'} FOUND`}
           </Typography>

@@ -8,7 +8,7 @@ import Container from 'components/Container'
 
 import {UseMixMasterContext} from 'context/mixmaster'
 
-const TrendingTags = ({inputValue=''}) => {
+const TrendingTags = ({inputValue = ''}) => {
   const {
     state: {trending, query},
     updateQueryString
@@ -16,7 +16,7 @@ const TrendingTags = ({inputValue=''}) => {
 
   const [qStr, setQStr] = React.useState(inputValue)
 
-  React.useEffect(()=> {
+  React.useEffect(() => {
     setQStr(query)
   }, [query])
   return (
