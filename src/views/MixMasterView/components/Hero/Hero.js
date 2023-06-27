@@ -4,19 +4,23 @@ import Card from '@mui/material/Card'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
+import Divider from '@mui/material/Divider'
 import InputAdornment from '@mui/material/InputAdornment'
 import HeroImg from 'images/mixmaster.jpg'
 
+import Stack from '@mui/material/Stack'
+import Chip from '@mui/material/Chip'
+
 import {UseMixMasterContext} from 'context/mixmaster'
 import Container from 'components/Container'
-
 
 const Hero = () => {
   const theme = useTheme()
   const {primary} = theme.palette
 
   const {
-    updateQueryString,
+    state: {trending, query},
+    updateQueryString
   } = UseMixMasterContext()
 
   const [inputValue, setInputValue] = React.useState('')
@@ -24,14 +28,15 @@ const Hero = () => {
   const focusMethod = () => {
     document.getElementById('textInputMixMaster').focus()
   }
-
   const clearInputValue = () => {
     setInputValue('')
     focusMethod()
   }
+
   React.useEffect(() => {
     focusMethod()
   }, [])
+
   const handleFormSubmit = (e) => {
     e.preventDefault()
     updateQueryString(inputValue)
@@ -93,49 +98,49 @@ const Hero = () => {
                     label={'Enter the first few letters of the cocktail name to begin your search'}
                     id="textInputMixMaster"
                     name="textInputMixMaster"
+                    variant="outlined"
+                    type="search"
                     onChange={handleInputChange}
                     value={inputValue}
                     sx={{height: 54, opacity: '1'}}
-                    variant="outlined"
                     color="primary"
                     size="medium"
                     fullWidth
-                    InputProps={{
-                      endAdornment: inputValue ? (
-                        <InputAdornment position="end">
-                          <Box
-                            onClick={clearInputValue}
-                            component={'svg'}
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            width={20}
-                            height={20}
-                            color={'primary.main'}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M6 18L18 6M6 6l12 12"
-                              strokeWidth={2}
-                            />
-                          </Box>
-                        </InputAdornment>
-                      ) : null
-                    }}
                   />
                 </Box>
               </Box>
             </form>
-
-            {/*
             <Box marginY={4} marginX={{xs: -3, sm: -6}}>
               <Divider />
             </Box>
-            */}
-
-
+            <Stack
+              direction="row"
+              spacing={1}
+              useFlexGap
+              flexWrap="wrap"
+              alignItems={'baseline'}
+              data-aos="fade"
+              data-aos-duration="3000"
+            >
+              <Typography component={'p'} variant="body2" align="left">
+                Trending:{' '}
+              </Typography>
+              {[...trending].map((title, i) => {
+                let isQueryMatch = title.toLowerCase() === query.toLowerCase()
+                return (
+                  <Chip
+                    size={'small'}
+                    color={'primary'}
+                    variant={'filled'}
+                    key={`${title}-${i}`}
+                    onClick={(e) => handleInputChangeWithString(title)}
+                    label={title}
+                    sx={{marginBottom: 1, marginRight: 1, verticalAlign: 'middle'}}
+                    disabled={isQueryMatch}
+                  />
+                )
+              })}
+            </Stack>
           </Box>
         </Box>
       </Container>

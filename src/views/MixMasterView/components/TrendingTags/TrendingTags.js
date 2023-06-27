@@ -8,12 +8,17 @@ import Container from 'components/Container'
 
 import {UseMixMasterContext} from 'context/mixmaster'
 
-const TrendingTags = () => {
+const TrendingTags = ({inputValue=''}) => {
   const {
     state: {trending, query},
     updateQueryString
   } = UseMixMasterContext()
 
+  const [qStr, setQStr] = React.useState(inputValue)
+
+  React.useEffect(()=> {
+    setQStr(query)
+  }, [query])
   return (
     <Stack
       direction="row"

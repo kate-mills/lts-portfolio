@@ -7,25 +7,27 @@ import Typography from '@mui/material/Typography'
 import Container from 'components/Container'
 
 import ShowcasePopover from '../ShowcasePopover'
-import TrendingTags from '../TrendingTags'
 import {UseMixMasterContext} from 'context/mixmaster'
 
-const ShowcaseGrid = ({data = {}, query = ''}) => {
-  const {loading} = UseMixMasterContext()
+const ShowcaseGrid = () => {
+  const {
+    loading,
+    state: {data, query}
+  } = UseMixMasterContext()
   return (
     <Box bgcolor={'background.paper'}>
-      <Container paddingY={'28px !important'}>
-      <Stack
-    direction="row"
-    spacing={1}
-    justifyContent={'space-between'}
-    alignItems={'flex-end'}
-    useFlexGap
-    flexWrap="wrap"
-    >
-    <Typography component={'span'} variant="subtitle2" align="left" minWidth={'30%'} py={.5}> { loading ?  `LOADING...`: `${data.length} COCKTAIL${data.length === 1 ? '': 'S'} FOUND`}</Typography>
-        <Box sx={{display: 'inline-block'}}><TrendingTags/></Box>
-       </Stack>
+      <Container paddingY={'0 !important'}>
+        <Stack
+          direction="row"
+          spacing={1}
+          justifyContent={'space-between'}
+          alignItems={'flex-end'}
+          useFlexGap
+          flexWrap="wrap">
+          <Typography component={'span'} variant="subtitle2" align="left" minWidth={'30%'} py={1}>
+            {loading ? `LOADING...` : `${data.length} COCKTAIL${data.length === 1 ? '' : 'S'} FOUND`}
+          </Typography>
+        </Stack>
       </Container>
       <Container paddingTop={'0 !important'}>
         <Grid container spacing={{xs: 2, md: 4}}>
