@@ -13,7 +13,7 @@ const ShowcaseGrid = () => {
     state: {data, query}
   } = UseMixMasterContext()
   return (
-    <Box bgcolor={'background.paper'}>
+    <Box bgcolor={'background.paper'} tabIndex="0">
       <Container minHeight={'44px'} paddingY={2}>
         <Typography
           component={'span'}
@@ -25,9 +25,7 @@ const ShowcaseGrid = () => {
           color={'primary.main'}
           pt={1}
           pb={2}
-        >
-          {' '}
-          {query}{' '}
+        >{query}
         </Typography>
       </Container>
       <Container paddingTop={'0 !important'} sx={{minHeight: '50vh'}}>

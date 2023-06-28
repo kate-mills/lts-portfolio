@@ -11,7 +11,7 @@ const MixMasterView = () => {
     <FluidLayout>
       <Box sx={{overflow: 'hidden !important'}} minHeight={'calc(100vh - 179px)'}>
         <Hero />
-        <Container paddingTop={'0 !important'}>
+        <Container paddingTop={'0 !important'} tabIndex="0">
           <ShowcaseGrid />
         </Container>
       </Box>
