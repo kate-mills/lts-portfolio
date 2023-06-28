@@ -22,7 +22,7 @@ const initialState = {
   cocktailsFound: 0,
   cocktailId: '',
   cocktailData: {},
-  trending: ['fizz', 'tequila', 'fl', 'vodka', 'whisky', 'rum', 'gin', '5', 'sour']
+  trending: ['margarita', 'fizz', 'tequila', 'fl', 'vodka', 'whisky', 'rum', 'gin', '5', 'sour', '900', 'sidecar', 'man', 'hot', 'lemon']
 }
 
 const MixMasterProvider = ({children}) => {
