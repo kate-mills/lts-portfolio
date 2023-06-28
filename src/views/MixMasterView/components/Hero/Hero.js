@@ -119,6 +119,8 @@ const Hero = () => {
                           {inputValue && (
                             <Box
                               onClick={clearInputValue}
+                              onKeyPress={clearInputValue}
+                              tabIndex="0"
                               component={'svg'}
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -145,8 +147,8 @@ const Hero = () => {
             </form>
             <Box marginY={6} marginX={{xs: -3, sm: -6}}>
               <Divider />
-              <Box height={'4px'}>
-                <Box sx={{width: '100%'}}>{loading && <LinearProgress height="4px" />}</Box>
+              <Box height={'2px'} minHeight={'2px'}>
+                <Box sx={{width: '100%'}} height={'2px'}>{loading && <LinearProgress sx={{height: '2px'}}/>}</Box>
               </Box>
             </Box>
             <Stack
