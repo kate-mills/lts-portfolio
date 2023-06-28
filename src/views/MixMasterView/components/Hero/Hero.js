@@ -8,6 +8,8 @@ import Divider from '@mui/material/Divider'
 import InputAdornment from '@mui/material/InputAdornment'
 import HeroImg from 'images/mixmaster.jpg'
 
+import LinearProgress from '@mui/material/LinearProgress'
+
 import Stack from '@mui/material/Stack'
 import Chip from '@mui/material/Chip'
 
@@ -17,9 +19,9 @@ import Container from 'components/Container'
 const Hero = () => {
   const theme = useTheme()
   const {primary} = theme.palette
-
   const {
-    state: {trending, query},
+    loading,
+    state: {trending, query, cocktailsFound},
     updateQueryString
   } = UseMixMasterContext()
 
@@ -28,27 +30,29 @@ const Hero = () => {
   const focusMethod = () => {
     document.getElementById('textInputMixMaster').focus()
   }
+
   const clearInputValue = () => {
     setInputValue('')
     focusMethod()
   }
 
-  React.useEffect(() => {
-    focusMethod()
-  }, [])
-
   const handleFormSubmit = (e) => {
     e.preventDefault()
     updateQueryString(inputValue)
   }
+
   const handleInputChangeWithString = (str) => {
     setInputValue(str)
     updateQueryString(str)
   }
+
   const handleInputChange = (e) => {
     let str = e.target.value
-    handleInputChangeWithString(str)
+    let isSpace = str === ' '
+    !isSpace && handleInputChangeWithString(str)
   }
+
+  React.useEffect(() => { focusMethod() }, [])
   return (
     <Box
       minHeight={300}
@@ -96,22 +100,54 @@ const Hero = () => {
                 <Box width={1} marginRight={{xs: 0, md: 2}} marginBottom={{xs: 2, md: 0}}>
                   <TextField
                     label={'Enter the first few letters of the cocktail name to begin your search'}
+                    helperText={
+                      inputValue &&
+                      (loading ? 'Loading...' : `${cocktailsFound} cocktail${cocktailsFound === 1 ? '' : 's'} found`)
+                    }
                     id="textInputMixMaster"
                     name="textInputMixMaster"
                     variant="outlined"
-                    type="search"
                     onChange={handleInputChange}
                     value={inputValue}
                     sx={{height: 54, opacity: '1'}}
                     color="primary"
                     size="medium"
                     fullWidth
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          {inputValue && (
+                            <Box
+                              onClick={clearInputValue}
+                              component={'svg'}
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              width={20}
+                              height={20}
+                              color={'primary.main'}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M6 18L18 6M6 6l12 12"
+                                strokeWidth={2}
+                              />
+                            </Box>
+                          )}
+                        </InputAdornment>
+                      )
+                    }}
                   />
                 </Box>
               </Box>
             </form>
-            <Box marginY={4} marginX={{xs: -3, sm: -6}}>
+            <Box marginY={6} marginX={{xs: -3, sm: -6}}>
               <Divider />
+              <Box height={'4px'}>
+                <Box sx={{width: '100%'}}>{loading && <LinearProgress height="4px" />}</Box>
+              </Box>
             </Box>
             <Stack
               direction="row"
