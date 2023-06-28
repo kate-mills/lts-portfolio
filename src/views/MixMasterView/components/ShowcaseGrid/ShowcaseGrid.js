@@ -1,7 +1,6 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
-import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 
 import Container from 'components/Container'
@@ -11,24 +10,12 @@ import {UseMixMasterContext} from 'context/mixmaster'
 
 const ShowcaseGrid = () => {
   const {
-    loading,
     state: {data, query}
   } = UseMixMasterContext()
   return (
     <Box bgcolor={'background.paper'}>
-      <Container paddingY={'0 !important'}>
-        <Stack
-          direction="row"
-          spacing={1}
-          justifyContent={'space-between'}
-          alignItems={'flex-end'}
-          useFlexGap
-          flexWrap="wrap"
-        >
-          <Typography component={'span'} variant="subtitle2" align="left" minWidth={'30%'} py={1}>
-            {loading ? `LOADING...` : `${data.length} COCKTAIL${data.length === 1 ? '' : 'S'} FOUND`}
-          </Typography>
-        </Stack>
+      <Container minHeight={'44px'} paddingY={2}>
+        <Typography component={'span'} variant="h6"fontWeight={'600'} textTransform="uppercase" align="left" pl={2} color={'primary.main'} pt={1} pb={2}> {query} </Typography>
       </Container>
       <Container paddingTop={'0 !important'}>
         <Grid container spacing={{xs: 2, md: 4}}>
