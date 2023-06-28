@@ -9,6 +9,7 @@ module.exports = {
     // 'gatsby-plugin-styled-components',
     'gatsby-plugin-mui-emotion',
     'gatsby-plugin-resolve-src',
+    {resolve: 'gatsby-plugin-web-font-loader', options: {typekit: {id: process.env.TYPEKIT_ID}}},
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -20,14 +21,6 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `browser`
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        typekit: {
-          id: process.env.TYPEKIT_ID
-        }
       }
     }
   ],
