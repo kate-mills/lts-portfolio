@@ -19,6 +19,7 @@ const initialState = {
   query: DEFAULT_QUERY,
   defaultQuery: DEFAULT_QUERY,
   data: [],
+  cocktailsFound: 0,
   cocktailId: '',
   cocktailData: {},
   trending: ['fizz', 'tequila', 'fl', 'vodka', 'whisky', 'rum', 'gin', '5', 'sour']

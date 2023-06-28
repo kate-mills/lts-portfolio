@@ -20,7 +20,6 @@ export default function TopLayout(props) {
         <meta name="og:locale" content="en_US" />
         <meta name="og:site_name" content="Kate Mills Portfolio" />
         <meta name="og:type" content="website" />
-        <link rel="stylesheet" href="https://use.typekit.net/cku7ykx.css" />
       </Helmet>
       <Page>{props.children}</Page>
     </React.Fragment>

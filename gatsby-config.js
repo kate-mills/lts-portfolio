@@ -14,12 +14,22 @@ module.exports = {
       options: {
         name: `Kate Mills Portfolio`,
         short_name: `kateMills`,
+        lang: `en`,
         start_url: `/`,
         icon: `src/images/icon.png`,
+        background_color: `#ffffff`,
         theme_color: `#ffffff`,
-        display: `standalone`
+        display: `browser`
       }
-    }
+    },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+        },
+      },
+    },
   ],
   siteMetadata: {
     title: 'Kate Mills Portfolio',

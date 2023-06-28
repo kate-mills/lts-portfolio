@@ -8,7 +8,7 @@ const reducer = (state, action) => {
   if (action.type === FETCH_DATA) {
     const {drinks} = action.payload
     let drinkData = !drinks ? [] : [...drinks]
-    return {...state, data: [...drinkData]}
+    return {...state, data: [...drinkData], cocktailsFound: drinkData.length}
   }
 
   if (action.type === UPDATE_COCKTAIL_ID) {
