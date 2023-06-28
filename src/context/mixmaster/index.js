@@ -6,7 +6,7 @@ import {FETCH_DATA, UPDATE_QUERY_STRING, FETCH_COCKTAIL_ID, UPDATE_COCKTAIL_ID} 
 
 import reducer from './reducer'
 
-const DEFAULT_QUERY = 'fl'
+const DEFAULT_QUERY = 'cocktail'
 
 const SEARCH_URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 
