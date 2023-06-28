@@ -8,9 +8,6 @@ import Divider from '@mui/material/Divider'
 import InputAdornment from '@mui/material/InputAdornment'
 import HeroImg from 'images/mixmaster.jpg'
 
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-
 import LinearProgress from '@mui/material/LinearProgress'
 
 import Stack from '@mui/material/Stack'
@@ -55,7 +52,9 @@ const Hero = () => {
     !isSpace && handleInputChangeWithString(str)
   }
 
-  React.useEffect(() => { focusMethod() }, [])
+  React.useEffect(() => {
+    focusMethod()
+  }, [])
   return (
     <Box
       minHeight={300}
@@ -99,7 +98,6 @@ const Hero = () => {
           </Box>
 
           <Box padding={{xs: 3, sm: 6}} width={1} component={Card} boxShadow={1}>
-
             <Stack
               direction="row"
               spacing={'11px'}
@@ -128,14 +126,19 @@ const Hero = () => {
               })}
             </Stack>
 
-
-
-            <Box marginBottom={6} marginTop={0} marginX={{xs: -3, sm: -6}}> <Divider /> <Box height={'2px'} minHeight={'2px'}> <Box sx={{width: '100%'}} height={'2px'}>{loading && <LinearProgress sx={{height: '2px'}}/>}</Box> </Box> </Box>
+            <Box marginBottom={6} marginTop={0} marginX={{xs: -3, sm: -6}}>
+              {' '}
+              <Divider />{' '}
+              <Box height={'2px'} minHeight={'2px'}>
+                {' '}
+                <Box sx={{width: '100%'}} height={'2px'}>
+                  {loading && <LinearProgress sx={{height: '2px'}} />}
+                </Box>{' '}
+              </Box>{' '}
+            </Box>
 
             <form noValidate autoComplete="off" onSubmit={handleFormSubmit}>
               <Box display="flex" flexDirection={{xs: 'column', md: 'row'}}>
-
-
                 <Box width={1} marginRight={{xs: 0, md: 2}} marginBottom={{xs: 2, md: 0}}>
                   <TextField
                     label={'Cocktail Name'}
@@ -184,7 +187,6 @@ const Hero = () => {
                 </Box>
               </Box>
             </form>
-
           </Box>
         </Box>
       </Container>
