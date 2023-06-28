@@ -15,7 +15,20 @@ const ShowcaseGrid = () => {
   return (
     <Box bgcolor={'background.paper'}>
       <Container minHeight={'44px'} paddingY={2}>
-        <Typography component={'span'} variant="h6"fontWeight={'600'} textTransform="uppercase" align="left" pl={2} color={'primary.main'} pt={1} pb={2}> {query} </Typography>
+        <Typography
+          component={'span'}
+          variant="h6"
+          fontWeight={'600'}
+          textTransform="uppercase"
+          align="left"
+          pl={2}
+          color={'primary.main'}
+          pt={1}
+          pb={2}
+        >
+          {' '}
+          {query}{' '}
+        </Typography>
       </Container>
       <Container paddingTop={'0 !important'} sx={{minHeight: '50vh'}}>
         <Grid container spacing={{xs: 2, md: 4}}>
