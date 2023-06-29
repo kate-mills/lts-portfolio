@@ -17,7 +17,7 @@ module.exports = {
         short_name: `kateMills`,
         lang: `en`,
         start_url: `/`,
-        icon: `src/images/icon.png`,
+        icon: `src/images/icon-512x512.png`,
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `browser`
