@@ -1,9 +1,10 @@
-@page {
-  size: portrait;
-  margin: 0mm;
-  /*padding: 5mm;*/
-}
 @media print {
+  @page {
+    size: portrait;
+    margin: 0mm;
+    width: 100%;
+    padding: 5mm;
+  }
   html {
     height: 100%;
     overflow: hidden;
@@ -14,8 +15,7 @@
     overflow: hidden;
     background: #fff;
   }
-  img,
-  main {
+  img, main{
     display: none;
   }
   .print-container {
