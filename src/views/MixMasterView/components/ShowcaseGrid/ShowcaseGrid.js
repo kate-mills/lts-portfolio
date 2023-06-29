@@ -25,7 +25,8 @@ const ShowcaseGrid = () => {
           color={'primary.main'}
           pt={1}
           pb={2}
-        >{query}
+        >
+          {query}
         </Typography>
       </Container>
       <Container paddingTop={'0 !important'} sx={{minHeight: '50vh'}}>

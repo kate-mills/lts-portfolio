@@ -9,9 +9,8 @@ import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 
 const Simple = ({item = {}}) => {
-
   const handlePrint = (title) => {
-    document.title = title 
+    document.title = title
     window.print()
   }
   const [open, setOpen] = useState(false)
@@ -42,7 +41,7 @@ const Simple = ({item = {}}) => {
   const handleClose = () => {
     setAnchorEl(null)
     setOpen(false)
-    document.title = "MixMaster"
+    document.title = 'MixMaster'
   }
 
   return (
@@ -133,7 +132,7 @@ const Simple = ({item = {}}) => {
                 <Typography variant={'body2'}>{item.strInstructions}</Typography>
               </Box>
               <Box className={'print-btn'} ml={1.5}>
-                <Button onClick={e => handlePrint(item.strDrink)} variant={'outlined'} sx={{paddingY: 0.5}}>
+                <Button onClick={(e) => handlePrint(item.strDrink)} variant={'outlined'} sx={{paddingY: 0.5}}>
                   Print
                 </Button>
               </Box>
