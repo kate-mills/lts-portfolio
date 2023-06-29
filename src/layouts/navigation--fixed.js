@@ -25,7 +25,6 @@ const pages = [
     groupTitle: 'Node.JS',
     id: 'node-js',
     pages: [
-      {title: 'Sudoku Solver', href: 'https://sudoku-solver.kate-mills.repl.co/', isLocal: false},
       {
         title: 'QA Projects',
         href: 'https://replit.com/@kate-mills?path=folder/public',
