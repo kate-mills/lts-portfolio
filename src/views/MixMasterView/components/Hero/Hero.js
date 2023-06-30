@@ -6,6 +6,8 @@ import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import Divider from '@mui/material/Divider'
 import InputAdornment from '@mui/material/InputAdornment'
+import SearchIcon from '@mui/icons-material/Search'
+
 import HeroImg from 'images/mixmaster.jpg'
 
 import LinearProgress from '@mui/material/LinearProgress'
@@ -98,50 +100,11 @@ const Hero = () => {
           </Box>
 
           <Box padding={{xs: 3, sm: 6}} width={1} component={Card} boxShadow={1}>
-            <Stack
-              direction="row"
-              spacing={'11px'}
-              useFlexGap
-              alignItems={'baseline'}
-              data-aos="fade"
-              data-aos-duration="3000"
-              overflow="scroll"
-              mb={2}
-              pb={1}
-            >
-              {[...trending].map((title, i) => {
-                let isQueryMatch = title.toLowerCase() === query.toLowerCase()
-                return (
-                  <Chip
-                    size={'small'}
-                    color={'primary'}
-                    variant={'filled'}
-                    key={`${title}-${i}`}
-                    onClick={(e) => handleInputChangeWithString(title)}
-                    label={title}
-                    sx={{marginBottom: 1, marginRight: 1, verticalAlign: 'middle'}}
-                    disabled={isQueryMatch}
-                  />
-                )
-              })}
-            </Stack>
-
-            <Box marginBottom={6} marginTop={0} marginX={{xs: -3, sm: -6}}>
-              {' '}
-              <Divider />{' '}
-              <Box height={'2px'} minHeight={'2px'}>
-                {' '}
-                <Box sx={{width: '100%'}} height={'2px'}>
-                  {loading && <LinearProgress sx={{height: '2px'}} />}
-                </Box>{' '}
-              </Box>{' '}
-            </Box>
-
-            <form noValidate autoComplete="off" onSubmit={handleFormSubmit}>
-              <Box display="flex" flexDirection={{xs: 'column', md: 'row'}}>
+            <Box mb={2}>
+              <form noValidate autoComplete="off" onSubmit={handleFormSubmit}>
                 <Box width={1} marginRight={{xs: 0, md: 2}} marginBottom={{xs: 2, md: 0}}>
                   <TextField
-                    label={'Cocktail Name'}
+                    label={'Start entering a cocktail name'}
                     helperText={
                       inputValue &&
                       (loading ? 'Loading...' : `${cocktailsFound} cocktail${cocktailsFound === 1 ? '' : 's'} found`)
@@ -156,6 +119,11 @@ const Hero = () => {
                     size="medium"
                     fullWidth
                     InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <SearchIcon color={'primary'} />
+                        </InputAdornment>
+                      ),
                       endAdornment: (
                         <InputAdornment position="end">
                           {inputValue && (
@@ -185,8 +153,40 @@ const Hero = () => {
                     }}
                   />
                 </Box>
+              </form>
+              <Box marginTop={5} marginBottom={2} marginX={{xs: -3, sm: -6}}>
+                <Divider />
+                <Box sx={{width: '100%'}} height={'2px'}>
+                  {loading && <LinearProgress sx={{height: '3px'}} />}
+                </Box>
               </Box>
-            </form>
+              <Stack
+                direction="row"
+                spacing={'11px'}
+                useFlexGap
+                alignItems={'baseline'}
+                overflow="scroll"
+                mb={-3}
+                pt={2}
+                pb={1}
+              >
+                {[...trending].map((title, i) => {
+                  let isQueryMatch = title.toLowerCase() === query.toLowerCase()
+                  return (
+                    <Chip
+                      size={'small'}
+                      color={'primary'}
+                      variant={'filled'}
+                      key={`${title}-${i}`}
+                      onClick={(e) => handleInputChangeWithString(title)}
+                      label={title}
+                      sx={{marginBottom: 1, marginRight: 1, verticalAlign: 'middle'}}
+                      disabled={isQueryMatch}
+                    />
+                  )
+                })}
+              </Stack>
+            </Box>
           </Box>
         </Box>
       </Container>
