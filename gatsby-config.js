@@ -9,7 +9,6 @@ module.exports = {
     // 'gatsby-plugin-styled-components',
     'gatsby-plugin-mui-emotion',
     'gatsby-plugin-resolve-src',
-    {resolve: 'gatsby-plugin-web-font-loader', options: {typekit: {id: process.env.TYPEKIT_ID}}},
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -20,7 +19,15 @@ module.exports = {
         icon: `src/images/icon-512x512.png`,
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
-        display: `browser`
+        display: `browser`,
+        crossOrigin: `use-credentials`,
+        id: '/'
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: { families: ['Shadows Into Light'] }
       }
     }
   ],

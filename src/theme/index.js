@@ -10,7 +10,7 @@ const getTheme = (mode, themeToggler) =>
       shadows: shadows(mode),
       typography: {
         fontFamily: "'Inter', sans-serif",
-        cursive: {fontFamily: 'calliope-mvb, sans-serif', fontWeight: 400},
+        cursive: {fontFamily: "'Shadows Into Light', cursive", fontWeight: 400},
         button: {
           textTransform: 'none',
           fontWeight: 'medium'
