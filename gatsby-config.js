@@ -20,8 +20,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `browser`,
-        crossOrigin: `use-credentials`,
-        id: '/'
+        crossOrigin: `use-credentials`
       }
     }
     /*{ resolve: 'gatsby-plugin-web-font-loader', options: { google: { families: ['Shadows Into Light'] } } }*/
