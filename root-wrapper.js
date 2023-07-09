@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '@fontsource/shadows-into-light-two';
+import '@fontsource/shadows-into-light-two'
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/600.css'
 

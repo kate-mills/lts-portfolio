@@ -23,7 +23,7 @@ module.exports = {
         crossOrigin: `use-credentials`,
         id: '/'
       }
-    },
+    }
     /*{ resolve: 'gatsby-plugin-web-font-loader', options: { google: { families: ['Shadows Into Light'] } } }*/
   ],
   siteMetadata: {
