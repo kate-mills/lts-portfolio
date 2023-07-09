@@ -24,12 +24,7 @@ module.exports = {
         id: '/'
       }
     },
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        google: { families: ['Shadows Into Light'] }
-      }
-    }
+    /*{ resolve: 'gatsby-plugin-web-font-loader', options: { google: { families: ['Shadows Into Light'] } } }*/
   ],
   siteMetadata: {
     title: 'Kate Mills Portfolio',

@@ -1321,6 +1321,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-5.0.3.tgz#30a1c0b974e29d72eddaec0c45655597ffa0bf80"
   integrity sha512-JJvh5xht71F6e0E5r2+Ffu8g+CYAxMvnGJm9ZMg5IIjy8UwxLp+8C99TgPJupdEyBpEJv0wuMG2Rd183z/bV8g==
 
+"@fontsource/shadows-into-light-two@^5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/shadows-into-light-two/-/shadows-into-light-two-5.0.5.tgz#2a05c093b1fd9c29811ff6e4d66a8ca266bcc041"
+  integrity sha512-8hYpTEBMnIM4GkTnY52PF6fU8CONd1n+AzJPCjC5ZBtqpcNodc8LQksQr9JaF0ucnxpHOCNWUdOIIeLmcB8aQw==
+
 "@gatsbyjs/parcel-namer-relative-to-cwd@^1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/parcel-namer-relative-to-cwd/-/parcel-namer-relative-to-cwd-1.10.0.tgz#4768957e2bd343ade1c8dfeb27bff2849ab46564"
