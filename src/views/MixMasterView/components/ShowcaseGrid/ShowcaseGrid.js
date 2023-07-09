@@ -37,7 +37,6 @@ const ShowcaseGrid = () => {
                 <img
                   src={item.strDrinkThumb}
                   alt={item.strDrink}
-                  loading="eager"
                   style={{
                     filter: 'brightness(0.7)',
                     borderRadius: 8,
