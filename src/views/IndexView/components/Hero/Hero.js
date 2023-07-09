@@ -39,6 +39,7 @@ const Hero = () => {
               Welcome
             </Typography>
             <Typography
+              component="h1"
               variant="h4"
               gutterBottom
               sx={{
@@ -51,7 +52,7 @@ const Hero = () => {
                 Front-End Web Developer
               </Typography>
             </Typography>
-            <Typography variant="h6" color={'text.secondary'}>
+            <Typography component="h2" variant="h6" color={'text.secondary'}>
               Greetings! I'm Kate, a Front-End Developer who enjoys discovering new and creative ways to solve problems.
             </Typography>
           </Box>

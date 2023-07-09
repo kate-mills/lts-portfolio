@@ -20,7 +20,7 @@ const IndexView = () => {
               solid back-end functionality.
             </Typography>
             <Box marginTop={4}>
-              <Typography variant="h6" gutterBottom sx={{fontWeight: 700}}>
+              <Typography component="p" variant="h6" gutterBottom sx={{fontWeight: 700}}>
                 Feedback
               </Typography>
 

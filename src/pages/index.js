@@ -15,7 +15,7 @@ export const Head = ({location}) => {
     <Seo
       location={location}
       pageContext={{
-        title: 'Kate Mills Company',
+        title: 'Kate Mills Portfolio Projects',
         description: '',
         image: SeoImg
       }}

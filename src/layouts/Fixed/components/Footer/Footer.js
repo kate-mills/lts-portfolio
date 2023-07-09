@@ -36,7 +36,7 @@ const Footer = () => {
         </Box>
       </Grid>
       <Grid item xs={12}>
-        <Typography align={'center'} variant={'subtitle2'} color="text.secondary" gutterBottom>
+        <Typography align={'center'} component="p" variant={'subtitle2'} color="text.secondary" gutterBottom>
           Front-End Developer | JavaScript ES6 | Linux | HTML | CSS | Styled Components | Gatsby | React | Material UI
         </Typography>
         <Typography align={'center'} variant={'caption'} color="text.secondary" component={'p'}>
