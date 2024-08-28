@@ -14,6 +14,7 @@ const Seo = ({location, params, data, pageContext = {}}) => {
       <meta name="og:description" content={description || defaultDescription} />
       <meta name="twitter:url" content={`${siteUrl}${location.pathname}`} />
       <meta name="og:image" content={image || defaultImage} />
+      <meta name="google-site-verification" content="tJW0STrTxKy1PIWkoG6tshYZ4VbEW_V6-EPXFwFUEuc" />
     </>
   )
 }
