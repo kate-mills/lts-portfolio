@@ -15,8 +15,8 @@ export const Head = ({location}) => {
     <Seo
       location={location}
       pageContext={{
-        title: 'Kate Mills Portfolio Projects',
-        description: '',
+        title: 'Kate Mills, Web Developer based in Napa, CA',
+        description: 'My portfolio demonstrates expertise in HTML, CSS, JavaScript, React, Gatsby, GraphQL, and NodeJS. I create responsive, mobile-friendly designs with robust back-end functionality.',
         image: SeoImg
       }}
     />

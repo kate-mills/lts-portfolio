@@ -25,6 +25,7 @@ const ContactView = () => {
           width={1}
           src={ContactImg}
           alt="Kate Mills, Web Developer located in Napa, CA"
+          title="Kate Mills, Web Developer located in Napa, CA"
           sx={{
             objectFit: 'cover',
             filter: 'brightness(.7)'

@@ -1,10 +1,7 @@
 const pages = {
   landings: [
-    {
-      title: 'MC Clinical Skin Care',
-      href: 'https://michelecorleyclinicalskincare.com/',
-      isLocal: false
-    }
+    { title: 'MC Clinical Skin Care', href: 'https://michelecorleyclinicalskincare.com/', isLocal: false },
+    { title: 'The Rebobs', href: 'https://www.napavalleycompositecycling.com/', isLocal: false },
   ],
   apps: [
     {

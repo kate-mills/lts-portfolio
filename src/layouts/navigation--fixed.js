@@ -2,8 +2,14 @@ const pages = [
   {
     groupTitle: 'Professional',
     id: 'professional',
-    pages: [{title: 'Michele Corley Skin Care', href: 'https://michelecorleyclinicalskincare.com/', isLocal: false}]
+    pages: [ {title: 'Michele Corley Skin Care', href: 'https://michelecorleyclinicalskincare.com/', isLocal: false}, ]
   },
+  {
+    groupTitle: 'Volunteer',
+    id: 'volunteer',
+    pages: [ { title: 'The Rebobs', href: 'https://www.napavalleycompositecycling.com/', isLocal: false }, ]
+  },
+
   {
     groupTitle: 'Web Apps',
     id: 'web-apps',
