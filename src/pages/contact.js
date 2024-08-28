@@ -15,7 +15,7 @@ export const Head = ({location}) => {
       location={location}
       pageContext={{
         title: 'Contact Me',
-        description: '',
+        description: 'I specialize in developing custom web experiences using the latest front-end technologies. With over seven years of experience, I have successfully delivered projects for local businesses and large-scale wholesalers, including Michele Corley Clinical Skin Care. I am eager to discuss how I can contribute to your next project.',
         image: SeoImg
       }}
     />

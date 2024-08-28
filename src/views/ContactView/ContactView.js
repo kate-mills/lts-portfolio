@@ -6,7 +6,7 @@ import Box from '@mui/material/Box'
 import Main from 'layouts/Main'
 import Container from 'components/Container'
 import {Form} from './components'
-import ContactImg from 'images/contact.jpg'
+import ContactImg from 'images/kate-mills.jpg'
 
 const ContactView = () => {
   const theme = useTheme()
@@ -24,7 +24,7 @@ const ContactView = () => {
           height={1}
           width={1}
           src={ContactImg}
-          alt=""
+          alt="Kate Mills, Web Developer located in Napa, CA"
           sx={{
             objectFit: 'cover',
             filter: 'brightness(.7)'
