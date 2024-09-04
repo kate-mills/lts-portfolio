@@ -1,32 +1,26 @@
 const pages = [
   {
+    groupTitle: 'Web Apps',
+    id: 'web-apps',
+    pages: [
+      {title: 'MixMaster', href: '/mixmaster/', isLocal: true, isNew: true},
+      {title: 'SnapScape', href: '/snapscape/', isLocal: true}
+    ]
+  },
+  {
     groupTitle: 'Professional',
     id: 'professional',
-    pages: [ {title: 'Michele Corley Skin Care', href: 'https://michelecorleyclinicalskincare.com/', isLocal: false}, ]
+    pages: [
+      {title: 'Michele Corley Skin Care', href: 'https://michelecorleyclinicalskincare.com/', isLocal: false},
+      {title: 'Art Translated', href: 'https://arttranslated.netlify.app/', isLocal: false}
+    ]
   },
   {
     groupTitle: 'Volunteer',
     id: 'volunteer',
-    pages: [ { title: 'The Rebobs', href: 'https://www.napavalleycompositecycling.com/', isLocal: false }, ]
+    pages: [{title: 'The Rebobs', href: 'https://www.napavalleycompositecycling.com/', isLocal: false}]
   },
 
-  {
-    groupTitle: 'Web Apps',
-    id: 'web-apps',
-    pages: [
-      {
-        title: 'MixMaster',
-        href: '/mixmaster/',
-        isLocal: true,
-        isNew: true
-      },
-      {
-        title: 'SnapScape',
-        href: '/snapscape/',
-        isLocal: true
-      }
-    ]
-  },
   {
     groupTitle: 'Node.JS',
     id: 'node-js',
