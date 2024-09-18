@@ -85,7 +85,7 @@ const Column = ({query, data, dataName, isSm = true}) => {
                     justifyContent="space-between"
                     flexWrap="wrap"
                   >
-                    {[...tags].map(({title, i}) => {
+                    {tags && [...tags].map(({title, i}) => {
                       let isQueryMatch = title.toLowerCase() === query.toLowerCase()
                       return isQueryMatch ? null : (
                         <Chip
@@ -154,7 +154,7 @@ const Column = ({query, data, dataName, isSm = true}) => {
                     flexWrap="wrap"
                   >
                     <Box maxWidth={'100%'}>
-                      {[...tags].map(({title, i}) => {
+                      {tags && [...tags].map(({title, i}) => {
                         let isQueryMatch = title.toLowerCase() === query.toLowerCase()
                         return (
                           <Chip
@@ -206,7 +206,7 @@ const Main = ({data1 = [], data2 = [], data3 = []}) => {
       <Grid container spacing={4}>
         {!isSm && (
           <Grid item xs={12} md={4}>
-            {data1.length < 1 ? (
+            {!data1.length ? (
               <Skeleton animation={'wave'} height={200} />
             ) : (
               <Column query={query} data={data1} dataName={'data1'} isSm={isSm} />
@@ -215,7 +215,7 @@ const Main = ({data1 = [], data2 = [], data3 = []}) => {
         )}
         {!isSm && (
           <Grid item xs={12} md={4}>
-            {data2.length < 1 ? (
+            {!data2?.length ? (
               <Skeleton animation={'wave'} />
             ) : (
               <Column query={query} data={data2} dataName={'data2'} isSm={isSm} />
@@ -224,7 +224,7 @@ const Main = ({data1 = [], data2 = [], data3 = []}) => {
         )}
 
         <Grid item xs={12} md={4}>
-          {data3.length < 1 ? (
+          {!data3?.length ?(
             <Skeleton animation={'wave'} />
           ) : (
             <Column query={query} data={data3} dataName={'data3'} isSm={isSm} />
