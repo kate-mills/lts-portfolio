@@ -1,9 +1,8 @@
 @media print {
   @page {
-    size: portrait;
-    margin: 0mm;
-    width: 100%;
-    padding: 5mm;
+    size: portrait !important;
+    margin: 5mm !important;
+    width: 100% !important;
   }
   html {
     height: 100%;
@@ -64,15 +63,15 @@
   div.mixmaster-header.MuiBox-root.css-0 {
     display: block;
   }
-  .MuiStack-root.css-e8inb6-MuiStack-root::after {
-    content: 'MixMaster';
+  .MuiStack-root::after {
+    content: 'MixMaster' !important;
     color: silver !important;
     position: absolute;
     top: 17% !important;
     right: 5% !important;
     font-size: small;
     z-index: 200 !important;
-    font-family: calliope-mvb,sans-serif !important;
+    font-family: calliope-mvb, sans-serif !important;
   }
   .print-btn{
     display: none;
