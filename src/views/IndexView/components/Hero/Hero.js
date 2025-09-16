@@ -53,7 +53,7 @@ const Hero = () => {
               </Typography>
             </Typography>
             <Typography component="h2" variant="h6" color={'text.secondary'}>
-              Greetings! I'm Kate, a Front-End Developer who enjoys discovering new and creative ways to solve problems.
+              Hi, I'm Kate! I help small businesses establish an online presence and ensure they’re visible to their target audience.
             </Typography>
           </Box>
         </Container>
