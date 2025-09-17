@@ -53,7 +53,7 @@ const Hero = () => {
               </Typography>
             </Typography>
             <Typography component="h2" variant="h6" color={'text.secondary'}>
-              Hi, I'm Kate! I help small businesses establish an online presence and ensure they’re visible to their target audience.
+              Hi, I'm Kate! I help small businesses establish an online presence and reach their target audience.
             </Typography>
           </Box>
         </Container>

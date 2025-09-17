@@ -15,7 +15,9 @@ const IndexView = () => {
         <Container paddingTop={'0 !important'}>
           <Box sx={{maxWidth: '80%'}}>
             <Typography gutterBottom variant="body1" color={'text.secondary'}>
-I build custom websites for small businesses, taking care of everything from the first idea to the final launch. I handle each step, including planning, user-friendly design, database setup, testing, and going live. This way, you get a website that fits your business, without any extra work on your end.
+              I build comprehensive, custom websites for small businesses, managed from concept to launch. I handle
+              every step, from requirements gathering and intuitive UI/UX design to robust database implementation,
+              thorough testing, and seamless deployment. You get a fully tailored online presence without hassle.
             </Typography>
             <Box marginTop={4}>
               <Typography component="p" variant="h6" gutterBottom sx={{fontWeight: 700}}>
