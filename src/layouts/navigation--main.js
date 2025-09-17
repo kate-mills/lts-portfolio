@@ -7,17 +7,21 @@ const pages = {
     {title: 'The Rebobs', href: 'https://www.napavalleycompositecycling.com/', isLocal: false}
   ],
   apps: [
+    {title: 'Spa Finder', href: 'https://michelecorleyclinicalskincare.com/spa-finder', isLocal: false},
     {
       title: 'SnapScape',
       href: '/snapscape/',
-      isLocal: true
+      isLocal: true,
+      isNew: true
     },
     {
       title: 'MixMaster',
       href: '/mixmaster/',
       isLocal: true,
       isNew: true
-    }
+    },
+    {title: 'Color Schemes', href: 'https://allydigital.netlify.app/color-scheme-generator', isLocal: false},
+    {title: 'Tints & Shades', href: 'https://allydigital.netlify.app/tints-and-shades', isLocal: false}
   ]
 }
 
