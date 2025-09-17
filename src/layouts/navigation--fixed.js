@@ -12,6 +12,7 @@ const pages = [
     id: 'professional',
     pages: [
       {title: 'Michele Corley Skin Care', href: 'https://michelecorleyclinicalskincare.com/', isLocal: false},
+      {title: 'Napa Valley Electrology', href: 'https://napavalleyelectrology.com/', isLocal: false},
       {title: 'Art Translated', href: 'https://arttranslated.netlify.app/', isLocal: false}
     ]
   },
